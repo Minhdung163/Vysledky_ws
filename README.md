@@ -1,0 +1,1 @@
+# Napln-dat-o-vysledcich
