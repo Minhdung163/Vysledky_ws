@@ -37,7 +37,7 @@ def get_data(url, username, password):
     password_field.send_keys(password)
     sleep(1)
     
-    password_field.send_keys(Keys.RETURN)  
+    password_field.send_keys(Keys.RETURN)
     
     # data = driver.page_source
     data = driver.find_element(By.ID, "VysledkyListBody").text
@@ -48,7 +48,7 @@ def get_data(url, username, password):
     return data
 
 def main():
-    username = getpass.getpass()
+    username = getpass.getpass("Username: ")
     password = getpass.getpass()
     data = get_data("https://apl.unob.cz/vvi/Vysledky", username, password)
     
@@ -90,7 +90,7 @@ def main():
             id_and_percent = chunk[4]
 
         record = {
-            "grade": chunk[0],
+            "type": chunk[0],
             "year": chunk[1],
             "title": title,
             "authors": authors,
