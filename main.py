@@ -52,8 +52,56 @@ def main():
     password = getpass.getpass()
     data = get_data("https://apl.unob.cz/vvi/Vysledky", username, password)
     
+    # with open("data.json", "w", encoding = "utf-8") as f:
+    #     json.dump(data, f, ensure_ascii=False, indent=4, default=lambda o: '<not serializable>')
+    
     with open("data.json", "w", encoding = "utf-8") as f:
-        json.dump(data, f, ensure_ascii=False, indent=4, default=lambda o: '<not serializable>')
+        f.write(data)
+    
+    with open("data.json", "r", encoding='utf-8') as f:
+        data = f.read()
+
+    # Split the data into lines
+    split_data = data.split('\n')
+    # First chunk of 5 lines
+    first_chunk = split_data[0:5]
+
+    # Special case: chunk of 6 lines
+    second_chunk = split_data[5:11]
+
+    # Rest of the data: chunks of 5 lines
+    rest_of_chunks = [split_data[i:i + 5] for i in range(11, len(split_data), 5)]
+
+    # Combine all chunks
+    chunks = [first_chunk, second_chunk] + rest_of_chunks
+
+    # Parse each chunk into a dictionary
+    records = []
+    for chunk in chunks:
+        
+        # Handle the special case where the title spans multiple lines
+        if len(chunk) == 6 and "Svaz letců svobodného Československa (Českoslovenští letci v boji za obnovu československé demokracie 1951–2017" in chunk[2] and "Free Czechoslovak Air Force Association (Czechoslovak Airmen Fighting for the Restoration of Democracy in Czechoslovakia 1951–2017)" in chunk[3]:
+            title = chunk[2] + " " + chunk[3]
+            authors = chunk[4]
+            id_and_percent = chunk[5]
+        else:
+            title = chunk[2]
+            authors = chunk[3]
+            id_and_percent = chunk[4]
+
+        record = {
+            "grade": chunk[0],
+            "year": chunk[1],
+            "title": title,
+            "authors": authors,
+            "id_and_percent": id_and_percent
+        }
+        records.append(record)
+
+
+    # Write the records to the file in JSON format
+    with open("data.json", "w", encoding='utf-8') as f:
+        json.dump(records, f, ensure_ascii=False, indent=4, default=lambda o: '<not serializable>')
       
 if __name__ == '__main__':
     main()
