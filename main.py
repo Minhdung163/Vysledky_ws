@@ -39,6 +39,28 @@ def get_data(url, username, password):
     
     password_field.send_keys(Keys.RETURN)
     
+    wait = WebDriverWait(driver, 20)  # wait up to 10 seconds
+
+    while True:
+            try:
+                # Scroll down the webpage
+                driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+
+                # Wait until the button is clickable
+                button = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".btn.btn-light.border.bg-btn-hover-light-1.no-wrap.w-100")))
+
+                # Click the button using JavaScript
+                driver.execute_script("arguments[0].click();", button)
+
+                # Wait for the page to load
+                sleep(10)
+            except Exception as e:
+                # If the button is not found or not clickable, break the loop
+                break
+    
+    # Wait for the AJAX data to load
+    wait.until(EC.presence_of_element_located((By.ID, "VysledkyListBody")))
+    
     # data = driver.page_source
     data = driver.find_element(By.ID, "VysledkyListBody").text
     assert type(data) == str
@@ -58,19 +80,27 @@ def main():
     with open("data.json", "w", encoding = "utf-8") as f:
         f.write(data)
     
+    
     with open("data.json", "r", encoding='utf-8') as f:
         data = f.read()
 
     # Split the data into lines
     split_data = data.split('\n')
-    # First chunk of 5 lines
-    first_chunk = split_data[0:5]
 
-    # Special case: chunk of 6 lines
-    second_chunk = split_data[5:11]
+    # Split each line at a space followed by a number and join with a newline, but only if the line contains a space followed by a number
+    split_data = ['\n'.join(re.split(r'(?<=^\d{6}) ', line)) if re.match(r'^\d{6}', line) else line for line in split_data]
+    
+    # Split the modified data into lines again
+    split_data = '\n'.join(split_data).split('\n')
+    
+    # First chunk of 6 lines
+    first_chunk = split_data[0:6]
 
-    # Rest of the data: chunks of 5 lines
-    rest_of_chunks = [split_data[i:i + 5] for i in range(11, len(split_data), 5)]
+    # Special case: chunk of 7 lines
+    second_chunk = split_data[6:13]
+
+    # Rest of the data: chunks of 6 lines
+    rest_of_chunks = [split_data[i:i + 6] for i in range(13, len(split_data), 6)]
 
     # Combine all chunks
     chunks = [first_chunk, second_chunk] + rest_of_chunks
@@ -80,21 +110,24 @@ def main():
     for chunk in chunks:
         
         # Handle the special case where the title spans multiple lines
-        if len(chunk) == 6 and "Svaz letců svobodného Československa (Českoslovenští letci v boji za obnovu československé demokracie 1951–2017" in chunk[2] and "Free Czechoslovak Air Force Association (Czechoslovak Airmen Fighting for the Restoration of Democracy in Czechoslovakia 1951–2017)" in chunk[3]:
+        if len(chunk) == 7 and "Svaz letců svobodného Československa (Českoslovenští letci v boji za obnovu československé demokracie 1951–2017" in chunk[2] and "Free Czechoslovak Air Force Association (Czechoslovak Airmen Fighting for the Restoration of Democracy in Czechoslovakia 1951–2017)" in chunk[3]:
             title = chunk[2] + " " + chunk[3]
             authors = chunk[4]
-            id_and_percent = chunk[5]
+            Id = chunk[5]
+            percent = chunk[6]
         else:
             title = chunk[2]
             authors = chunk[3]
-            id_and_percent = chunk[4]
+            Id = chunk[4]
+            percent = chunk[5]
 
         record = {
             "type": chunk[0],
             "year": chunk[1],
             "title": title,
             "authors": authors,
-            "id_and_percent": id_and_percent
+            "Id": Id,
+            "percent": percent
         }
         records.append(record)
 
