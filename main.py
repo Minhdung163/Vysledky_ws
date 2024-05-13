@@ -69,10 +69,33 @@ def get_data(url, username, password):
 
     return data
 
+def click_link_and_extract_data(driver, link_href):
+    # Click on the link with the specified href attribute
+    driver.get(link_href)
+    wait = WebDriverWait(driver, 2)
+    wait.until(EC.presence_of_element_located((By.CLASS_NAME, "table table-borderless table-striped table-light table-cellspacing1 border mb-0")))
+
+    # Extract data from the page after clicking on the link
+    with open("data2.json", "r", encoding='utf-8') as f:
+        existing_data = json.load(f)
+
+    # Append the new data
+    new_data = driver.find_element(By.CLASS_NAME, "table table-borderless table-striped table-light table-cellspacing1 border mb-0").text
+    existing_data.append(new_data)
+
+    # Write the updated data back to the JSON file
+    with open("data2.json", "w", encoding='utf-8') as f:
+        json.dump(existing_data, f, ensure_ascii=False, indent=4)
+    return new_data
+
 def main():
+    browser_options = webdriver.ChromeOptions()
+    browser_options.headless = True
+    driver = webdriver.Chrome(options=browser_options)
     username = getpass.getpass("Username: ")
     password = getpass.getpass()
     data = get_data("https://apl.unob.cz/vvi/Vysledky", username, password)
+    
     
     # with open("data.json", "w", encoding = "utf-8") as f:
     #     json.dump(data, f, ensure_ascii=False, indent=4, default=lambda o: '<not serializable>')
@@ -131,10 +154,28 @@ def main():
         }
         records.append(record)
 
-
+        # link_href = "https://apl.unob.cz/vvi/Vysledek/" + Id
+        # click_link_and_extract_data(driver, link_href)
     # Write the records to the file in JSON format
     with open("data.json", "w", encoding='utf-8') as f:
         json.dump(records, f, ensure_ascii=False, indent=4, default=lambda o: '<not serializable>')
+    
+    
+    # link_clicked = False
+    # while not link_clicked:
+    #     try:
+    #         link = driver.find_element(By.XPATH, "//a[contains(@href,'Vysledek') and contains(@href,'563052')]")
+    #         link.click()
+    #         link_clicked = True
+    #     except Exception as e:
+    #         pass
+
+    # if link_clicked:
+    #     data2 = click_link_and_extract_data(driver, "https://apl.unob.cz/vvi/Vysledek/563052")
+    # with open("data2.json", "w", encoding='utf-8') as f:
+    #     json.dump(data2, f, ensure_ascii=False, indent=4)
+    
+    
       
 if __name__ == '__main__':
     main()
