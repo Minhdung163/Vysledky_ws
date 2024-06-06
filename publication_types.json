@@ -1,10 +1,24 @@
-[
-    {
-        "id": "2f259a2f-64b9-4f7b-8b85-5616fdced66e",
-        "name": "Recenzovaný odborný článek"
-    },
-    {
-        "id": "c586d916-94c9-4c63-8ff3-986178f7790b",
-        "name": "Odborná kniha"
-    }
-]
+{
+    "publication_types": [
+        {
+            "id": "22c42b45-6fbd-46af-a1cb-35ae52c60cc4",
+            "name": "Odborná kniha"
+        },
+        {
+            "id": "9ad4c135-208d-431c-9cb7-4eca4760ec90",
+            "name": "Recenzovaný odborný článek"
+        },
+        {
+            "id": "5b8a7ff9-fad1-4f3d-abe4-703b26fe3d83",
+            "name": "Stať ve sborníku"
+        },
+        {
+            "id": "7064fc25-8ffd-40c9-b146-02f131e35761",
+            "name": "Výzkumná zpráva"
+        },
+        {
+            "id": "526fe30d-73bf-44ad-828d-6fa70c971d5e",
+            "name": "Kapitola/y v odborné knize"
+        }
+    ]
+}

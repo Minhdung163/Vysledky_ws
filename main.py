@@ -121,7 +121,8 @@ def get_publication(driver,result_link):
     name = driver.find_element(By.XPATH, "/html/body/div/main/div[1]/div[7]/div/div/div[2]/table/tbody/tr[3]/td").text
     published_year = driver.find_element(By.XPATH, "/html/body/div/main/div[1]/div[7]/div/div/div[2]/table/tbody/tr[8]/td").text
     place_of_publication = driver.find_element(By.XPATH, "/html/body/div/main/div[1]/div[8]/div/div/div[2]/table/tbody/tr[3]/td").text
-    publication_type_name = name = driver.find_element(By.XPATH, "/html/body/div/main/div[1]/div[7]/div/div/div[2]/table/tbody/tr[1]/td").text
+    publication_type_name = driver.find_element(By.XPATH, "/html/body/div/main/div[1]/div[7]/div/div/div[2]/table/tbody/tr[1]/td").text
+    valid = True
     
     # Read the publication types from the JSON file
     with open("publication_types.json", "r", encoding="utf-8") as f:
@@ -130,7 +131,7 @@ def get_publication(driver,result_link):
     # Find the publication type with the matching name and get its id
     publication_type_id = next((item['id'] for item in publication_types if item['name'] == publication_type_name), None)
 
-    return {"id": id, "name": name, "published_year": published_year, "place_of_publication": place_of_publication, "publication_type_id": publication_type_id}
+    return {"id": id, "name": name, "published_year": published_year, "place_of_publication": place_of_publication, "publication_type_id": publication_type_id, "valid": valid, "link": result_link}
 
 def get_publication_types(driver, result_link):
     driver.get(result_link)
@@ -196,21 +197,28 @@ def scrape_publication_links(url, username, password):
     return result_links
 
 
-def get_data(url, username, password, result_links):
+def write_publication(url, username, password, result_links):
     driver = login(url, username, password)
-        
-    results = []
+    
+    publications = []  # Ensure this is outside the loop to accumulate data
     for result_link in result_links:
         publication_data = get_publication(driver, result_link)
-        # result_data = get_basic_infor_result(driver, result_link)
-        # authors = get_list_of_authors(driver, result_link)
-        # data_by_type_of_result = get_data_by_type_of_result(driver, result_link)   
-        # supports = get_list_of_supports(driver, result_link) 
-        # attachments = get_attachments_result(driver, result_link)
+        publications.append(publication_data)  # Append each publication's data
         
-        result = {"publication": publication_data}
-        
-        results.append(result)
+    results = {"publications": publications}  # Wrap the accumulated list
+    return results
+
+def write_publication_types(url, username, password, result_links):
+    driver = login(url, username, password)
+    
+    publication_types_list = []
+    seen_names = set()
+    for result_link in result_links:
+        publication_types = get_publication_types(driver, result_link)
+        if publication_types['name'] not in seen_names:
+            seen_names.add(publication_types['name'])
+            publication_types_list.append(publication_types)
+    results = {"publication_types": publication_types_list}
     return results
 
 def main():
@@ -234,26 +242,19 @@ def main():
     
     
     
-    with open("result_links.txt", "r") as file:
+    with open("result_links_test.txt", "r") as file:
         result_links = file.read().splitlines()
     
-    # data = get_data(main_url, username, password, result_links)
+    # publication_data = write_publication(main_url, username, password, result_links)
         
     # with open("result_data_test.json", "w", encoding = "utf-8") as f:
-    #     json.dump(data, f, ensure_ascii=False, indent=4, default=lambda o: '<not serializable>)')
+    #     json.dump(publication_data, f, ensure_ascii=False, indent=4, default=lambda o: '<not serializable>)')
     
-    # Get the publication types
-    driver = login(main_url, username, password)
-    publication_types_list = []
-    seen_names = set()
-    for result_link in result_links:
-        publication_types = get_publication_types(driver, result_link)
-        if publication_types['name'] not in seen_names:
-            seen_names.add(publication_types['name'])
-            publication_types_list.append(publication_types)
 
+    publication_types_data = write_publication_types(main_url, username, password, result_links)
+    
     with open("publication_types.json", "w", encoding = "utf-8") as f:
-        f.write(json.dumps(publication_types_list, ensure_ascii=False, indent=4))
+        f.write(json.dumps(publication_types_data, ensure_ascii=False, indent=4))
         
     
 

@@ -1,80 +1,58 @@
-[
-    {
-        "publication": {
-            "id": "073591f2-558b-4b5f-81fb-0622f9a23958",
+{
+    "publications": [
+        {
+            "id": "e0c7640e-8cbf-460d-8f81-11cd8d4d97e5",
             "name": "Možnost náhrady strofantových semen glykosidy trýzele",
             "published_year": "1953",
             "place_of_publication": "",
-            "publication_type_id": "027b96e5-51f0-4c10-8f88-2d4c3c1b6d78"
+            "publication_type_id": "2f259a2f-64b9-4f7b-8b85-5616fdced66e",
+            "valid": true,
+            "link": "https://apl.unob.cz/vvi/Vysledek/538490"
         },
-        "publication_type": {
-            "id": "1fcda70c-c50c-43d3-af45-8d1381eaf1d2",
-            "name": "Možnost náhrady strofantových semen glykosidy trýzele"
-        }
-    },
-    {
-        "publication": {
-            "id": "bbe26f2a-000d-455f-99d0-741ff277facd",
+        {
+            "id": "4b3e0fbe-3485-4742-97dd-1154eb5a5afb",
             "name": "Nová léčivá rostlina",
             "published_year": "1954",
             "place_of_publication": "",
-            "publication_type_id": "75da5b29-01af-4d54-8fe6-8698a3a9e7ba"
+            "publication_type_id": "2f259a2f-64b9-4f7b-8b85-5616fdced66e",
+            "valid": true,
+            "link": "https://apl.unob.cz/vvi/Vysledek/538497"
         },
-        "publication_type": {
-            "id": "457342a0-ab55-4ca0-a471-4634d76fc3e3",
-            "name": "Nová léčivá rostlina"
-        }
-    },
-    {
-        "publication": {
-            "id": "6e00f280-befe-4798-bdc4-a20c788f8479",
+        {
+            "id": "4883b450-9174-4a8d-80ca-1f25afaf77a7",
             "name": "Význam kukuřice ve farmacii",
             "published_year": "1955",
             "place_of_publication": "",
-            "publication_type_id": "98e3754f-929d-4f45-8a41-e7ab0cd8beae"
+            "publication_type_id": "2f259a2f-64b9-4f7b-8b85-5616fdced66e",
+            "valid": true,
+            "link": "https://apl.unob.cz/vvi/Vysledek/539789"
         },
-        "publication_type": {
-            "id": "0d9b1473-c348-48be-a6b8-daec15fd20cc",
-            "name": "Význam kukuřice ve farmacii"
-        }
-    },
-    {
-        "publication": {
-            "id": "f14a909f-9d41-4938-b4fe-87c04ba3c846",
+        {
+            "id": "3b3f9370-f8f7-4f6b-892a-28531a4200d7",
             "name": "Rakytník řešetlákový - rostlina vitaminodárná a léčivá",
             "published_year": "1956",
             "place_of_publication": "",
-            "publication_type_id": "e50ade50-caaf-49af-a70b-96e7b03787b9"
+            "publication_type_id": "2f259a2f-64b9-4f7b-8b85-5616fdced66e",
+            "valid": true,
+            "link": "https://apl.unob.cz/vvi/Vysledek/540776"
         },
-        "publication_type": {
-            "id": "2979bc3b-a497-44df-aaa6-ec65b1e1202b",
-            "name": "Rakytník řešetlákový - rostlina vitaminodárná a léčivá"
-        }
-    },
-    {
-        "publication": {
-            "id": "679df5c7-7da5-457f-8d0c-49b18673622e",
+        {
+            "id": "c842daa9-bc28-4f8f-8540-6be76edb8e12",
             "name": "Využití plodů rakytníku úzkolistého k léčebným účelům",
             "published_year": "1956",
             "place_of_publication": "",
-            "publication_type_id": "77e91b2f-3014-435f-9547-3559c5dea2eb"
+            "publication_type_id": "2f259a2f-64b9-4f7b-8b85-5616fdced66e",
+            "valid": true,
+            "link": "https://apl.unob.cz/vvi/Vysledek/540639"
         },
-        "publication_type": {
-            "id": "909a64e3-a195-4acd-b51c-bbc95cc11c73",
-            "name": "Využití plodů rakytníku úzkolistého k léčebným účelům"
-        }
-    },
-    {
-        "publication": {
-            "id": "1249d58b-ea36-4808-a71b-c763b8596699",
+        {
+            "id": "23e21dd3-0604-420d-b76b-99d0d2e9414d",
             "name": "Analýza operačního prostředí na Ukrajině - Vývoj konfliktu od února 2022 do období podzimu 2023",
             "published_year": "2024",
             "place_of_publication": "Brno",
-            "publication_type_id": "f9dadfbb-9f7e-4567-a17f-2a2ba3dedec6"
-        },
-        "publication_type": {
-            "id": "a919e4cf-62d1-4a56-a1b7-2f477888bab9",
-            "name": "Analýza operačního prostředí na Ukrajině - Vývoj konfliktu od února 2022 do období podzimu 2023"
+            "publication_type_id": "c586d916-94c9-4c63-8ff3-986178f7790b",
+            "valid": true,
+            "link": "https://apl.unob.cz/vvi/Vysledek/563052"
         }
-    }
-]
+    ]
+}
