@@ -1,222 +1,80 @@
 [
     {
-        "link": "https://apl.unob.cz/vvi/Vysledek/538490",
-        "basic_info": {
-            "Druh výsledku": "Recenzovaný odborný článek",
-            "Původní jazyk": "",
-            "Název v původním jazyce": "Možnost náhrady strofantových semen glykosidy trýzele",
-            "Název v anglickém jazyce": "",
-            "Klíčová slova v anglickém jazyce": "",
-            "Popis v původním jazyce": "",
-            "Popis v anglickém jazyce": "",
-            "Rok uplatnění": "1953",
-            "Obor m17+": "",
-            "Důvěrnost údajů poskytnutých do RIV": "Obsah výsledku nepodléhající ochraně podle zvláštních právních předpisů",
-            "Odkaz": "",
-            "Odkaz na výzkum": "",
-            "DOI": "",
-            "Editoři v citaci": ""
+        "publication": {
+            "id": "3563703d-73c1-46c8-a430-625e44a29c6d",
+            "name": "Možnost náhrady strofantových semen glykosidy trýzele",
+            "published_year": "1953",
+            "place_of_publication": "",
+            "publication_type_id": "bb3528ff-14f1-4104-a4e4-97bc9a9f3a3e"
         },
-        "data_by_type_of_result": {
-            "Forma vydání": "",
-            "ISBN nebo ISMN": "",
-            "Místo vydání": "",
-            "Název edice a číslo svazku": "",
-            "Počet stran knihy": "",
-            "Počet výtisků": "",
-            "Odkaz na záznam v Databázi Národní knihovny ČR": "",
-            "Vydání (verze) knihy": "",
-            "Název nakladatele": "",
-            "Kód UT WoS knihy podle Web of Science": "",
-            "EID knihy podle Scopus": ""
-        },
-        "authors": [
-            {
-                "Pořadí": "1",
-                "Příjmení Jméno": "Měrka",
-                "Podíl [%]": "100",
-                "Vztah": "Cizí Garant",
-                "Součást v době uplatnění výsledku": "",
-                "Další": ""
-            }
-        ],
-        "supports_and_funding": [],
-        "attachments": []
+        "publication_type": {
+            "id": "bb3528ff-14f1-4104-a4e4-97bc9a9f3a3e",
+            "name": "Možnost náhrady strofantových semen glykosidy trýzele"
+        }
     },
     {
-        "link": "https://apl.unob.cz/vvi/Vysledek/538497",
-        "basic_info": {
-            "Druh výsledku": "Recenzovaný odborný článek",
-            "Původní jazyk": "",
-            "Název v původním jazyce": "Nová léčivá rostlina",
-            "Název v anglickém jazyce": "",
-            "Klíčová slova v anglickém jazyce": "",
-            "Popis v původním jazyce": "",
-            "Popis v anglickém jazyce": "",
-            "Rok uplatnění": "1954",
-            "Obor m17+": "",
-            "Důvěrnost údajů poskytnutých do RIV": "Obsah výsledku nepodléhající ochraně podle zvláštních právních předpisů",
-            "Odkaz": "",
-            "Odkaz na výzkum": "",
-            "DOI": "",
-            "Editoři v citaci": ""
+        "publication": {
+            "id": "bcf2017b-7d28-4d02-af40-4a8a327bf680",
+            "name": "Nová léčivá rostlina",
+            "published_year": "1954",
+            "place_of_publication": "",
+            "publication_type_id": "bb3528ff-14f1-4104-a4e4-97bc9a9f3a3e"
         },
-        "data_by_type_of_result": {
-            "Forma vydání": "",
-            "ISBN nebo ISMN": "",
-            "Místo vydání": "",
-            "Název edice a číslo svazku": "",
-            "Počet stran knihy": "",
-            "Počet výtisků": "",
-            "Odkaz na záznam v Databázi Národní knihovny ČR": "",
-            "Vydání (verze) knihy": "",
-            "Název nakladatele": "",
-            "Kód UT WoS knihy podle Web of Science": "",
-            "EID knihy podle Scopus": ""
-        },
-        "authors": [
-            {
-                "Pořadí": "1",
-                "Příjmení Jméno": "Měrka",
-                "Podíl [%]": "100",
-                "Vztah": "Cizí Garant",
-                "Součást v době uplatnění výsledku": "",
-                "Další": ""
-            }
-        ],
-        "supports_and_funding": [],
-        "attachments": []
+        "publication_type": {
+            "id": "bb3528ff-14f1-4104-a4e4-97bc9a9f3a3e",
+            "name": "Nová léčivá rostlina"
+        }
     },
     {
-        "link": "https://apl.unob.cz/vvi/Vysledek/539789",
-        "basic_info": {
-            "Druh výsledku": "Recenzovaný odborný článek",
-            "Původní jazyk": "",
-            "Název v původním jazyce": "Význam kukuřice ve farmacii",
-            "Název v anglickém jazyce": "",
-            "Klíčová slova v anglickém jazyce": "",
-            "Popis v původním jazyce": "",
-            "Popis v anglickém jazyce": "",
-            "Rok uplatnění": "1955",
-            "Obor m17+": "",
-            "Důvěrnost údajů poskytnutých do RIV": "Obsah výsledku nepodléhající ochraně podle zvláštních právních předpisů",
-            "Odkaz": "",
-            "Odkaz na výzkum": "",
-            "DOI": "",
-            "Editoři v citaci": ""
+        "publication": {
+            "id": "e456c9f5-bf93-49ca-b92c-b844fffa80bf",
+            "name": "Význam kukuřice ve farmacii",
+            "published_year": "1955",
+            "place_of_publication": "",
+            "publication_type_id": "bb3528ff-14f1-4104-a4e4-97bc9a9f3a3e"
         },
-        "data_by_type_of_result": {
-            "Forma vydání": "",
-            "ISBN nebo ISMN": "",
-            "Místo vydání": "",
-            "Název edice a číslo svazku": "",
-            "Počet stran knihy": "",
-            "Počet výtisků": "",
-            "Odkaz na záznam v Databázi Národní knihovny ČR": "",
-            "Vydání (verze) knihy": "",
-            "Název nakladatele": "",
-            "Kód UT WoS knihy podle Web of Science": "",
-            "EID knihy podle Scopus": ""
-        },
-        "authors": [
-            {
-                "Pořadí": "1",
-                "Příjmení Jméno": "Měrka",
-                "Podíl [%]": "100",
-                "Vztah": "Cizí Garant",
-                "Součást v době uplatnění výsledku": "",
-                "Další": ""
-            }
-        ],
-        "supports_and_funding": [],
-        "attachments": []
+        "publication_type": {
+            "id": "bb3528ff-14f1-4104-a4e4-97bc9a9f3a3e",
+            "name": "Význam kukuřice ve farmacii"
+        }
     },
     {
-        "link": "https://apl.unob.cz/vvi/Vysledek/540776",
-        "basic_info": {
-            "Druh výsledku": "Recenzovaný odborný článek",
-            "Původní jazyk": "",
-            "Název v původním jazyce": "Rakytník řešetlákový - rostlina vitaminodárná a léčivá",
-            "Název v anglickém jazyce": "",
-            "Klíčová slova v anglickém jazyce": "",
-            "Popis v původním jazyce": "",
-            "Popis v anglickém jazyce": "",
-            "Rok uplatnění": "1956",
-            "Obor m17+": "",
-            "Důvěrnost údajů poskytnutých do RIV": "Obsah výsledku nepodléhající ochraně podle zvláštních právních předpisů",
-            "Odkaz": "",
-            "Odkaz na výzkum": "",
-            "DOI": "",
-            "Editoři v citaci": ""
+        "publication": {
+            "id": "d959c588-a8bc-46f6-b231-d0c23f1d57cc",
+            "name": "Rakytník řešetlákový - rostlina vitaminodárná a léčivá",
+            "published_year": "1956",
+            "place_of_publication": "",
+            "publication_type_id": "bb3528ff-14f1-4104-a4e4-97bc9a9f3a3e"
         },
-        "data_by_type_of_result": {
-            "Forma vydání": "",
-            "ISBN nebo ISMN": "",
-            "Místo vydání": "",
-            "Název edice a číslo svazku": "",
-            "Počet stran knihy": "",
-            "Počet výtisků": "",
-            "Odkaz na záznam v Databázi Národní knihovny ČR": "",
-            "Vydání (verze) knihy": "",
-            "Název nakladatele": "",
-            "Kód UT WoS knihy podle Web of Science": "",
-            "EID knihy podle Scopus": ""
-        },
-        "authors": [
-            {
-                "Pořadí": "1",
-                "Příjmení Jméno": "Měrka",
-                "Podíl [%]": "100",
-                "Vztah": "Cizí Garant",
-                "Součást v době uplatnění výsledku": "",
-                "Další": ""
-            }
-        ],
-        "supports_and_funding": [],
-        "attachments": []
+        "publication_type": {
+            "id": "bb3528ff-14f1-4104-a4e4-97bc9a9f3a3e",
+            "name": "Rakytník řešetlákový - rostlina vitaminodárná a léčivá"
+        }
     },
     {
-        "link": "https://apl.unob.cz/vvi/Vysledek/540639",
-        "basic_info": {
-            "Druh výsledku": "Recenzovaný odborný článek",
-            "Původní jazyk": "",
-            "Název v původním jazyce": "Využití plodů rakytníku úzkolistého k léčebným účelům",
-            "Název v anglickém jazyce": "",
-            "Klíčová slova v anglickém jazyce": "",
-            "Popis v původním jazyce": "",
-            "Popis v anglickém jazyce": "",
-            "Rok uplatnění": "1956",
-            "Obor m17+": "",
-            "Důvěrnost údajů poskytnutých do RIV": "Obsah výsledku nepodléhající ochraně podle zvláštních právních předpisů",
-            "Odkaz": "",
-            "Odkaz na výzkum": "",
-            "DOI": "",
-            "Editoři v citaci": ""
+        "publication": {
+            "id": "3e539d4b-36ed-43d9-b6f0-f0a51e81885f",
+            "name": "Využití plodů rakytníku úzkolistého k léčebným účelům",
+            "published_year": "1956",
+            "place_of_publication": "",
+            "publication_type_id": "bb3528ff-14f1-4104-a4e4-97bc9a9f3a3e"
         },
-        "data_by_type_of_result": {
-            "Forma vydání": "",
-            "ISBN nebo ISMN": "",
-            "Místo vydání": "",
-            "Název edice a číslo svazku": "",
-            "Počet stran knihy": "",
-            "Počet výtisků": "",
-            "Odkaz na záznam v Databázi Národní knihovny ČR": "",
-            "Vydání (verze) knihy": "",
-            "Název nakladatele": "",
-            "Kód UT WoS knihy podle Web of Science": "",
-            "EID knihy podle Scopus": ""
+        "publication_type": {
+            "id": "bb3528ff-14f1-4104-a4e4-97bc9a9f3a3e",
+            "name": "Využití plodů rakytníku úzkolistého k léčebným účelům"
+        }
+    },
+    {
+        "publication": {
+            "id": "c184f049-26ca-4f0b-a36f-e9178afcfa13",
+            "name": "Analýza operačního prostředí na Ukrajině - Vývoj konfliktu od února 2022 do období podzimu 2023",
+            "published_year": "2024",
+            "place_of_publication": "Brno",
+            "publication_type_id": "bb3528ff-14f1-4104-a4e4-97bc9a9f3a3e"
         },
-        "authors": [
-            {
-                "Pořadí": "1",
-                "Příjmení Jméno": "Měrka",
-                "Podíl [%]": "100",
-                "Vztah": "Cizí Garant",
-                "Součást v době uplatnění výsledku": "",
-                "Další": ""
-            }
-        ],
-        "supports_and_funding": [],
-        "attachments": []
+        "publication_type": {
+            "id": "bb3528ff-14f1-4104-a4e4-97bc9a9f3a3e",
+            "name": "Analýza operačního prostředí na Ukrajině - Vývoj konfliktu od února 2022 do období podzimu 2023"
+        }
     }
 ]
