@@ -234,7 +234,7 @@ def main():
     
     
     
-    with open("result_links_test.txt", "r") as file:
+    with open("result_links.txt", "r") as file:
         result_links = file.read().splitlines()
     
     # data = get_data(main_url, username, password, result_links)
