@@ -121,6 +121,14 @@ def get_publication(driver,result_link):
     name = driver.find_element(By.XPATH, "/html/body/div/main/div[1]/div[7]/div/div/div[2]/table/tbody/tr[3]/td").text
     published_year = driver.find_element(By.XPATH, "/html/body/div/main/div[1]/div[7]/div/div/div[2]/table/tbody/tr[8]/td").text
     place_of_publication = driver.find_element(By.XPATH, "/html/body/div/main/div[1]/div[8]/div/div/div[2]/table/tbody/tr[3]/td").text
+    publication_type_name = name = driver.find_element(By.XPATH, "/html/body/div/main/div[1]/div[7]/div/div/div[2]/table/tbody/tr[1]/td").text
+    
+    # Read the publication types from the JSON file
+    with open("publication_types.json", "r", encoding="utf-8") as f:
+        publication_types = json.load(f)
+
+    # Find the publication type with the matching name and get its id
+    publication_type_id = next((item['id'] for item in publication_types if item['name'] == publication_type_name), None)
 
     return {"id": id, "name": name, "published_year": published_year, "place_of_publication": place_of_publication, "publication_type_id": publication_type_id}
 
@@ -129,7 +137,7 @@ def get_publication_types(driver, result_link):
     sleep(2)
 
     id = str(uuid4())
-    name = driver.find_element(By.XPATH, "/html/body/div/main/div[1]/div[7]/div/div/div[2]/table/tbody/tr[3]/td").text
+    name = driver.find_element(By.XPATH, "/html/body/div/main/div[1]/div[7]/div/div/div[2]/table/tbody/tr[1]/td").text
     
     return {"id": id, "name": name}
 
@@ -194,14 +202,13 @@ def get_data(url, username, password, result_links):
     results = []
     for result_link in result_links:
         publication_data = get_publication(driver, result_link)
-        publication_type_data = get_publication_types(driver, result_link)
         # result_data = get_basic_infor_result(driver, result_link)
         # authors = get_list_of_authors(driver, result_link)
         # data_by_type_of_result = get_data_by_type_of_result(driver, result_link)   
         # supports = get_list_of_supports(driver, result_link) 
         # attachments = get_attachments_result(driver, result_link)
         
-        result = {"publication": publication_data , "publication_type": publication_type_data}
+        result = {"publication": publication_data}
         
         results.append(result)
     return results
@@ -214,7 +221,8 @@ def main():
     password = lines[1].strip()
     main_url = "https://apl.unob.cz/vvi/Vysledky"
     base_url = "https://apl.unob.cz/vvi/Vysledky?RokUplatneniList={year}&NazevVysledku=&Doi=&NazevCelku=&Issn=&KodUtIsi=&ScopusEid=&JeValidni="
-
+    
+    # # Scrape the publication links
     # for year in range(1951, 2025): 
     #     url = base_url.format(year=year)
     #     links = scrape_publication_links(url, username, password)
@@ -224,7 +232,7 @@ def main():
     #         for link in links:
     #             f.write(link + "\n")
     
-    driver = login(main_url, username, password)
+    
     
     with open("result_links_test.txt", "r") as file:
         result_links = file.read().splitlines()
@@ -233,14 +241,16 @@ def main():
         
     # with open("result_data_test.json", "w", encoding = "utf-8") as f:
     #     json.dump(data, f, ensure_ascii=False, indent=4, default=lambda o: '<not serializable>)')
-    publication_types_set = set()
+    
+    # Get the publication types
+    driver = login(main_url, username, password)
+    publication_types_list = []
+    seen_names = set()
     for result_link in result_links:
         publication_types = get_publication_types(driver, result_link)
-        # Convert the dictionary to a tuple with only the values and add it to the set
-        publication_types_set.add(tuple(publication_types.values()))
-
-    # Convert the set of tuples back to a list of dictionaries
-    publication_types_list = [dict(zip(publication_types.keys(), values)) for values in publication_types_set]
+        if publication_types['name'] not in seen_names:
+            seen_names.add(publication_types['name'])
+            publication_types_list.append(publication_types)
 
     with open("publication_types.json", "w", encoding = "utf-8") as f:
         f.write(json.dumps(publication_types_list, ensure_ascii=False, indent=4))

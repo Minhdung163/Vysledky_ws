@@ -1,79 +1,79 @@
 [
     {
         "publication": {
-            "id": "3563703d-73c1-46c8-a430-625e44a29c6d",
+            "id": "073591f2-558b-4b5f-81fb-0622f9a23958",
             "name": "Možnost náhrady strofantových semen glykosidy trýzele",
             "published_year": "1953",
             "place_of_publication": "",
-            "publication_type_id": "bb3528ff-14f1-4104-a4e4-97bc9a9f3a3e"
+            "publication_type_id": "027b96e5-51f0-4c10-8f88-2d4c3c1b6d78"
         },
         "publication_type": {
-            "id": "bb3528ff-14f1-4104-a4e4-97bc9a9f3a3e",
+            "id": "1fcda70c-c50c-43d3-af45-8d1381eaf1d2",
             "name": "Možnost náhrady strofantových semen glykosidy trýzele"
         }
     },
     {
         "publication": {
-            "id": "bcf2017b-7d28-4d02-af40-4a8a327bf680",
+            "id": "bbe26f2a-000d-455f-99d0-741ff277facd",
             "name": "Nová léčivá rostlina",
             "published_year": "1954",
             "place_of_publication": "",
-            "publication_type_id": "bb3528ff-14f1-4104-a4e4-97bc9a9f3a3e"
+            "publication_type_id": "75da5b29-01af-4d54-8fe6-8698a3a9e7ba"
         },
         "publication_type": {
-            "id": "bb3528ff-14f1-4104-a4e4-97bc9a9f3a3e",
+            "id": "457342a0-ab55-4ca0-a471-4634d76fc3e3",
             "name": "Nová léčivá rostlina"
         }
     },
     {
         "publication": {
-            "id": "e456c9f5-bf93-49ca-b92c-b844fffa80bf",
+            "id": "6e00f280-befe-4798-bdc4-a20c788f8479",
             "name": "Význam kukuřice ve farmacii",
             "published_year": "1955",
             "place_of_publication": "",
-            "publication_type_id": "bb3528ff-14f1-4104-a4e4-97bc9a9f3a3e"
+            "publication_type_id": "98e3754f-929d-4f45-8a41-e7ab0cd8beae"
         },
         "publication_type": {
-            "id": "bb3528ff-14f1-4104-a4e4-97bc9a9f3a3e",
+            "id": "0d9b1473-c348-48be-a6b8-daec15fd20cc",
             "name": "Význam kukuřice ve farmacii"
         }
     },
     {
         "publication": {
-            "id": "d959c588-a8bc-46f6-b231-d0c23f1d57cc",
+            "id": "f14a909f-9d41-4938-b4fe-87c04ba3c846",
             "name": "Rakytník řešetlákový - rostlina vitaminodárná a léčivá",
             "published_year": "1956",
             "place_of_publication": "",
-            "publication_type_id": "bb3528ff-14f1-4104-a4e4-97bc9a9f3a3e"
+            "publication_type_id": "e50ade50-caaf-49af-a70b-96e7b03787b9"
         },
         "publication_type": {
-            "id": "bb3528ff-14f1-4104-a4e4-97bc9a9f3a3e",
+            "id": "2979bc3b-a497-44df-aaa6-ec65b1e1202b",
             "name": "Rakytník řešetlákový - rostlina vitaminodárná a léčivá"
         }
     },
     {
         "publication": {
-            "id": "3e539d4b-36ed-43d9-b6f0-f0a51e81885f",
+            "id": "679df5c7-7da5-457f-8d0c-49b18673622e",
             "name": "Využití plodů rakytníku úzkolistého k léčebným účelům",
             "published_year": "1956",
             "place_of_publication": "",
-            "publication_type_id": "bb3528ff-14f1-4104-a4e4-97bc9a9f3a3e"
+            "publication_type_id": "77e91b2f-3014-435f-9547-3559c5dea2eb"
         },
         "publication_type": {
-            "id": "bb3528ff-14f1-4104-a4e4-97bc9a9f3a3e",
+            "id": "909a64e3-a195-4acd-b51c-bbc95cc11c73",
             "name": "Využití plodů rakytníku úzkolistého k léčebným účelům"
         }
     },
     {
         "publication": {
-            "id": "c184f049-26ca-4f0b-a36f-e9178afcfa13",
+            "id": "1249d58b-ea36-4808-a71b-c763b8596699",
             "name": "Analýza operačního prostředí na Ukrajině - Vývoj konfliktu od února 2022 do období podzimu 2023",
             "published_year": "2024",
             "place_of_publication": "Brno",
-            "publication_type_id": "bb3528ff-14f1-4104-a4e4-97bc9a9f3a3e"
+            "publication_type_id": "f9dadfbb-9f7e-4567-a17f-2a2ba3dedec6"
         },
         "publication_type": {
-            "id": "bb3528ff-14f1-4104-a4e4-97bc9a9f3a3e",
+            "id": "a919e4cf-62d1-4a56-a1b7-2f477888bab9",
             "name": "Analýza operačního prostředí na Ukrajině - Vývoj konfliktu od února 2022 do období podzimu 2023"
         }
     }
