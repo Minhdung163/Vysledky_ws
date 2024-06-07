@@ -1,0 +1,68 @@
+{
+    "publication_types": [
+        {
+            "id": "f5d08a43-1fde-4bc9-a947-a069163a06c8",
+            "name": "Stať ve sborníku"
+        },
+        {
+            "id": "4af3e3ff-c879-4394-be95-78277e3633b2",
+            "name": "Recenzovaný odborný článek"
+        },
+        {
+            "id": "4805b890-d4ba-44d0-ae0d-16b1b967ccd0",
+            "name": "Ostatní"
+        },
+        {
+            "id": "c2c39606-d54c-42b5-95f3-185d3f318a12",
+            "name": "Kapitola/y v odborné knize"
+        },
+        {
+            "id": "cd7cde01-69c6-48fd-98ce-a5a72f1ef57b",
+            "name": "Výzkumná zpráva"
+        },
+        {
+            "id": "2951471e-94e3-4cb6-9f21-d02e1051f407",
+            "name": "Odborná kniha"
+        },
+        {
+            "id": "9bb7dd95-526b-4abd-804b-80ff4ee46caf",
+            "name": "Metodiky / postupy / mapy"
+        },
+        {
+            "id": "e1d1ba05-4ef2-427e-9aa9-42c6b0f40aee",
+            "name": "Poskytovatelem realizované výsledky"
+        },
+        {
+            "id": "495087ca-c27c-4ebe-80e4-5450dfd1e028",
+            "name": "Uspořádání workshopu"
+        },
+        {
+            "id": "481e0e78-04bb-486c-9bdf-2361b90c041a",
+            "name": "Patent"
+        },
+        {
+            "id": "f0ff3821-1d43-4a9b-a4a1-7a878787e6b1",
+            "name": "Prototyp / funkční vzorek"
+        },
+        {
+            "id": "4b2438f0-0299-40d7-aa74-4182a06915cc",
+            "name": "Uspořádání konference"
+        },
+        {
+            "id": "6b78cd80-d0b0-4ca9-987d-d77a54942934",
+            "name": "Audiovizuální tvorba"
+        },
+        {
+            "id": "e216bbca-d760-4102-b4bf-ad68df9d9cdf",
+            "name": "Software"
+        },
+        {
+            "id": "3a04dd68-c744-42bb-a4a2-b5989bbae255",
+            "name": "Užitný vzor / průmyslový vzor"
+        },
+        {
+            "id": "23464d87-056d-47a2-8f15-f628f020543b",
+            "name": "Uspořádání výstavy"
+        }
+    ]
+}
