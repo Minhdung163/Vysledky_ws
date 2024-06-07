@@ -126,12 +126,22 @@ def get_publication(driver,result_link):
     
     # Read the publication types from the JSON file
     with open("publication_types.json", "r", encoding="utf-8") as f:
-        publication_types = json.load(f)
+        data = json.load(f)
+    publication_types = data['publication_types']
 
     # Find the publication type with the matching name and get its id
     publication_type_id = next((item['id'] for item in publication_types if item['name'] == publication_type_name), None)
 
-    return {"id": id, "name": name, "published_year": published_year, "place_of_publication": place_of_publication, "publication_type_id": publication_type_id, "valid": valid, "link": result_link}
+
+    return {
+        "id": id, 
+        "name": name, 
+        "published_year": published_year, 
+        "place_of_publication": place_of_publication, 
+        "publication_type_id": publication_type_id, 
+        "valid": valid, 
+        "reference": result_link
+    }
 
 def get_publication_types(driver, result_link):
     driver.get(result_link)
@@ -140,7 +150,10 @@ def get_publication_types(driver, result_link):
     id = str(uuid4())
     name = driver.find_element(By.XPATH, "/html/body/div/main/div[1]/div[7]/div/div/div[2]/table/tbody/tr[1]/td").text
     
-    return {"id": id, "name": name}
+    return {
+        "id": id, 
+        "name": name
+    }
 
 
 def login(url, username, password):
@@ -245,16 +258,16 @@ def main():
     with open("result_links_test.txt", "r") as file:
         result_links = file.read().splitlines()
     
-    # publication_data = write_publication(main_url, username, password, result_links)
+    publication_data = write_publication(main_url, username, password, result_links)
         
-    # with open("result_data_test.json", "w", encoding = "utf-8") as f:
-    #     json.dump(publication_data, f, ensure_ascii=False, indent=4, default=lambda o: '<not serializable>)')
+    with open("result_data_test.json", "w", encoding = "utf-8") as f:
+        json.dump(publication_data, f, ensure_ascii=False, indent=4, default=lambda o: '<not serializable>)')
     
 
-    publication_types_data = write_publication_types(main_url, username, password, result_links)
+    # publication_types_data = write_publication_types(main_url, username, password, result_links)
     
-    with open("publication_types.json", "w", encoding = "utf-8") as f:
-        f.write(json.dumps(publication_types_data, ensure_ascii=False, indent=4))
+    # with open("publication_types.json", "w", encoding = "utf-8") as f:
+    #     f.write(json.dumps(publication_types_data, ensure_ascii=False, indent=4))
         
     
 

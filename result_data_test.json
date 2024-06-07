@@ -1,58 +1,454 @@
 {
     "publications": [
         {
-            "id": "e0c7640e-8cbf-460d-8f81-11cd8d4d97e5",
-            "name": "Možnost náhrady strofantových semen glykosidy trýzele",
-            "published_year": "1953",
+            "id": "9a03d9e4-722b-4282-a392-492212a79e71",
+            "name": "Complex of IgA1-lambda paraprotein and albumin",
+            "published_year": "Obsah výsledku nepodléhající ochraně podle zvláštních právních předpisů",
             "place_of_publication": "",
-            "publication_type_id": "2f259a2f-64b9-4f7b-8b85-5616fdced66e",
+            "publication_type_id": "d2c95e7e-8bbb-47f7-81e9-bb9831a11ebe",
             "valid": true,
-            "link": "https://apl.unob.cz/vvi/Vysledek/538490"
+            "link": "https://apl.unob.cz/vvi/Vysledek/537742"
         },
         {
-            "id": "4b3e0fbe-3485-4742-97dd-1154eb5a5afb",
-            "name": "Nová léčivá rostlina",
-            "published_year": "1954",
+            "id": "49c131e7-bf0f-424d-8e8d-53ed17d513a0",
+            "name": "Serum levels of immunoglobulin A, G, M and D after transplantation of the kidneys and in chronic intermittent haemodialysis",
+            "published_year": "Obsah výsledku nepodléhající ochraně podle zvláštních právních předpisů",
             "place_of_publication": "",
-            "publication_type_id": "2f259a2f-64b9-4f7b-8b85-5616fdced66e",
+            "publication_type_id": "d2c95e7e-8bbb-47f7-81e9-bb9831a11ebe",
             "valid": true,
-            "link": "https://apl.unob.cz/vvi/Vysledek/538497"
+            "link": "https://apl.unob.cz/vvi/Vysledek/538661"
         },
         {
-            "id": "4883b450-9174-4a8d-80ca-1f25afaf77a7",
-            "name": "Význam kukuřice ve farmacii",
-            "published_year": "1955",
-            "place_of_publication": "",
-            "publication_type_id": "2f259a2f-64b9-4f7b-8b85-5616fdced66e",
+            "id": "82118436-c9cb-4ea7-b4da-c5e769e42287",
+            "name": "Bis (4-hydroxyiminomethylpyridinium) -methan dichlorid. I. Subakutní toxicitní studie na krysách",
+            "published_year": "1977",
+            "place_of_publication": "Hradec Králové",
+            "publication_type_id": "7bd92762-5c5a-424f-b405-5a016b165e3e",
             "valid": true,
-            "link": "https://apl.unob.cz/vvi/Vysledek/539789"
+            "link": "https://apl.unob.cz/vvi/Vysledek/552933"
         },
         {
-            "id": "3b3f9370-f8f7-4f6b-892a-28531a4200d7",
-            "name": "Rakytník řešetlákový - rostlina vitaminodárná a léčivá",
-            "published_year": "1956",
+            "id": "3f9008ca-011d-423a-8781-e20e92d66d6c",
+            "name": "Continual determination of acetylcholinesterase inhibiton following organophosphate poisoning using an auto analyzer",
+            "published_year": "1977",
             "place_of_publication": "",
-            "publication_type_id": "2f259a2f-64b9-4f7b-8b85-5616fdced66e",
+            "publication_type_id": "d2c95e7e-8bbb-47f7-81e9-bb9831a11ebe",
             "valid": true,
-            "link": "https://apl.unob.cz/vvi/Vysledek/540776"
+            "link": "https://apl.unob.cz/vvi/Vysledek/539703"
         },
         {
-            "id": "c842daa9-bc28-4f8f-8540-6be76edb8e12",
-            "name": "Využití plodů rakytníku úzkolistého k léčebným účelům",
-            "published_year": "1956",
+            "id": "30378832-e1a8-4ec0-a2d6-ddcb6744d890",
+            "name": "Možnosti stanovení 2,3,7,8-tetrachlordibenzo-p-dioxinu (TCDD)",
+            "published_year": "1977",
             "place_of_publication": "",
-            "publication_type_id": "2f259a2f-64b9-4f7b-8b85-5616fdced66e",
+            "publication_type_id": "d2c95e7e-8bbb-47f7-81e9-bb9831a11ebe",
             "valid": true,
-            "link": "https://apl.unob.cz/vvi/Vysledek/540639"
+            "link": "https://apl.unob.cz/vvi/Vysledek/540607"
         },
         {
-            "id": "23e21dd3-0604-420d-b76b-99d0d2e9414d",
-            "name": "Analýza operačního prostředí na Ukrajině - Vývoj konfliktu od února 2022 do období podzimu 2023",
-            "published_year": "2024",
-            "place_of_publication": "Brno",
-            "publication_type_id": "c586d916-94c9-4c63-8ff3-986178f7790b",
+            "id": "24159192-16fb-4685-bba7-cfc316591946",
+            "name": "Flow cytometric assessment of the survival ratio of Francisella tularensis in aerobiological samples",
+            "published_year": "Obsah výsledku nepodléhající ochraně podle zvláštních právních předpisů",
+            "place_of_publication": "",
+            "publication_type_id": "269b0466-e68e-424b-b507-0012826c866c",
             "valid": true,
-            "link": "https://apl.unob.cz/vvi/Vysledek/563052"
+            "link": "https://apl.unob.cz/vvi/Vysledek/549768"
+        },
+        {
+            "id": "b4db8f0d-4938-402e-9f29-e33554e27bbf",
+            "name": "Rozdíly při intoxikacích různými typy V-látek",
+            "published_year": "1977",
+            "place_of_publication": "Hradec Králové",
+            "publication_type_id": "7bd92762-5c5a-424f-b405-5a016b165e3e",
+            "valid": true,
+            "link": "https://apl.unob.cz/vvi/Vysledek/552473"
+        },
+        {
+            "id": "fb2759f2-9a42-4ae0-8ddc-9b40c68314bc",
+            "name": "Ugnětěnije izofermentov esteraz plazmy krovi čelověka i životnych takrinom (1, 2, 3, 4-tetragidro-9-aminoakridin)",
+            "published_year": "1977",
+            "place_of_publication": "",
+            "publication_type_id": "3a66d390-0aed-465f-9e9a-9db2dab528b3",
+            "valid": true,
+            "link": "https://apl.unob.cz/vvi/Vysledek/552644"
+        },
+        {
+            "id": "ab8f61bb-4a00-4551-8e15-6ddb7e343cdc",
+            "name": "Dieta při reverzní izolaci v aseptickém prostředí",
+            "published_year": "1977",
+            "place_of_publication": "",
+            "publication_type_id": "d2c95e7e-8bbb-47f7-81e9-bb9831a11ebe",
+            "valid": true,
+            "link": "https://apl.unob.cz/vvi/Vysledek/540157"
+        },
+        {
+            "id": "03f0f1d5-7339-4602-95c8-f8db030123a7",
+            "name": "Léčba akutního dřeňového útlumu v aseptickém prostředí",
+            "published_year": "1977",
+            "place_of_publication": "",
+            "publication_type_id": "d2c95e7e-8bbb-47f7-81e9-bb9831a11ebe",
+            "valid": true,
+            "link": "https://apl.unob.cz/vvi/Vysledek/540171"
+        },
+        {
+            "id": "b0c6eeac-9d88-4ee7-b8fd-eb1eed3d1ae2",
+            "name": "Systemic mastocytosis (report of a case)",
+            "published_year": "Obsah výsledku nepodléhající ochraně podle zvláštních právních předpisů",
+            "place_of_publication": "",
+            "publication_type_id": "d2c95e7e-8bbb-47f7-81e9-bb9831a11ebe",
+            "valid": true,
+            "link": "https://apl.unob.cz/vvi/Vysledek/540918"
+        },
+        {
+            "id": "7626be84-14ba-40f5-9ee2-457f5f0d3a65",
+            "name": "9-hydrazino-1,2,3,4-tetrahydroacridine, a competitive inhibitor of butyrylcholinesterase",
+            "published_year": "1977",
+            "place_of_publication": "",
+            "publication_type_id": "d2c95e7e-8bbb-47f7-81e9-bb9831a11ebe",
+            "valid": true,
+            "link": "https://apl.unob.cz/vvi/Vysledek/537966"
+        },
+        {
+            "id": "3caab9fa-b590-420a-8ebd-ec147032b132",
+            "name": "Traumatické ruptury bránice",
+            "published_year": "1977",
+            "place_of_publication": "",
+            "publication_type_id": "d2c95e7e-8bbb-47f7-81e9-bb9831a11ebe",
+            "valid": true,
+            "link": "https://apl.unob.cz/vvi/Vysledek/537910"
+        },
+        {
+            "id": "86096ecd-2511-46d7-80fa-94f21b8c9aae",
+            "name": "Traumatické a netraumatické podbrániční abscesy",
+            "published_year": "1977",
+            "place_of_publication": "",
+            "publication_type_id": "d2c95e7e-8bbb-47f7-81e9-bb9831a11ebe",
+            "valid": true,
+            "link": "https://apl.unob.cz/vvi/Vysledek/538463"
+        },
+        {
+            "id": "b773dfdc-78c7-43f4-af7f-115c42120f9f",
+            "name": "Výchova a výcvik mladších zdravotnických specialistů",
+            "published_year": "1977",
+            "place_of_publication": "",
+            "publication_type_id": "d2c95e7e-8bbb-47f7-81e9-bb9831a11ebe",
+            "valid": true,
+            "link": "https://apl.unob.cz/vvi/Vysledek/540679"
+        },
+        {
+            "id": "3cfed2fe-ce83-44c1-bdc3-b7d06ada1a89",
+            "name": "Acetylcholinesteráza: struktura, funkce a vlastnosti",
+            "published_year": "1977",
+            "place_of_publication": "",
+            "publication_type_id": "d2c95e7e-8bbb-47f7-81e9-bb9831a11ebe",
+            "valid": true,
+            "link": "https://apl.unob.cz/vvi/Vysledek/539681"
+        },
+        {
+            "id": "6cf38d77-4664-448e-8e1c-18672d933d72",
+            "name": "Diagnostický význam hladiny vitaminu B12 u některých vnitřních onemocnění",
+            "published_year": "1977",
+            "place_of_publication": "",
+            "publication_type_id": "d2c95e7e-8bbb-47f7-81e9-bb9831a11ebe",
+            "valid": true,
+            "link": "https://apl.unob.cz/vvi/Vysledek/540174"
+        },
+        {
+            "id": "2f81ba0b-0482-41c0-a756-ec56b28a73dc",
+            "name": "Zdravotnické požadavky na havarijní dozimetrii",
+            "published_year": "1977",
+            "place_of_publication": "",
+            "publication_type_id": "3a66d390-0aed-465f-9e9a-9db2dab528b3",
+            "valid": true,
+            "link": "https://apl.unob.cz/vvi/Vysledek/542852"
+        },
+        {
+            "id": "317a4462-29a7-4911-b09e-96ac04046583",
+            "name": "Tituly laureátů uděleny",
+            "published_year": "1977",
+            "place_of_publication": "",
+            "publication_type_id": "d2c95e7e-8bbb-47f7-81e9-bb9831a11ebe",
+            "valid": true,
+            "link": "https://apl.unob.cz/vvi/Vysledek/538698"
+        },
+        {
+            "id": "dcc9a895-b4e1-44bd-9f04-d00ac2ceeee0",
+            "name": "Štábní práce pro hlavního lékaře. Učební texty VLVDÚ JEP. Sv. 113",
+            "published_year": "1977",
+            "place_of_publication": "Hradec Králové",
+            "publication_type_id": "60f9aa28-5896-4c91-9802-263c01f288be",
+            "valid": true,
+            "link": "https://apl.unob.cz/vvi/Vysledek/552344"
+        },
+        {
+            "id": "fde141be-c19e-4fa8-8b89-85be88e426a2",
+            "name": "Lipské setkání",
+            "published_year": "1977",
+            "place_of_publication": "",
+            "publication_type_id": "d2c95e7e-8bbb-47f7-81e9-bb9831a11ebe",
+            "valid": true,
+            "link": "https://apl.unob.cz/vvi/Vysledek/538960"
+        },
+        {
+            "id": "ebae391c-a2e5-402f-bc5d-d105d3646007",
+            "name": "Zkušenosti s použitím nízkoviskózní metylcelulózy při plakování některých arbovirů",
+            "published_year": "1977",
+            "place_of_publication": "",
+            "publication_type_id": "d2c95e7e-8bbb-47f7-81e9-bb9831a11ebe",
+            "valid": true,
+            "link": "https://apl.unob.cz/vvi/Vysledek/540440"
+        },
+        {
+            "id": "8c6d1e3e-6db0-4588-a9c0-5732c2520dd5",
+            "name": "Změny aktivity cholinesterázy při peritoneální dialýze",
+            "published_year": "1977",
+            "place_of_publication": "",
+            "publication_type_id": "3a66d390-0aed-465f-9e9a-9db2dab528b3",
+            "valid": true,
+            "link": "https://apl.unob.cz/vvi/Vysledek/552611"
+        },
+        {
+            "id": "02cd191b-130f-4d82-bbb4-2ca6f3644913",
+            "name": "Autoinjektor GAI",
+            "published_year": "1977",
+            "place_of_publication": "Hradec Králové",
+            "publication_type_id": "7bd92762-5c5a-424f-b405-5a016b165e3e",
+            "valid": true,
+            "link": "https://apl.unob.cz/vvi/Vysledek/553189"
+        },
+        {
+            "id": "54aa1cb2-4ed8-435b-b9d5-2d4ede846ab6",
+            "name": "Vliv nízkoenergetické výživy na některé fyziologické a biochemické funkce organismu",
+            "published_year": "1977",
+            "place_of_publication": "",
+            "publication_type_id": "d2c95e7e-8bbb-47f7-81e9-bb9831a11ebe",
+            "valid": true,
+            "link": "https://apl.unob.cz/vvi/Vysledek/540570"
+        },
+        {
+            "id": "8ec5108d-1ddd-45e8-b3be-059e134319ce",
+            "name": "Krystalizační teplo dusičnanu draselného",
+            "published_year": "1977",
+            "place_of_publication": "",
+            "publication_type_id": "d2c95e7e-8bbb-47f7-81e9-bb9831a11ebe",
+            "valid": true,
+            "link": "https://apl.unob.cz/vvi/Vysledek/539911"
+        },
+        {
+            "id": "b32d00ee-b9c9-4599-a520-1ad49fbd9d1c",
+            "name": "Neobvyklý případ střelného poranění hrudníku",
+            "published_year": "1977",
+            "place_of_publication": "",
+            "publication_type_id": "d2c95e7e-8bbb-47f7-81e9-bb9831a11ebe",
+            "valid": true,
+            "link": "https://apl.unob.cz/vvi/Vysledek/540700"
+        },
+        {
+            "id": "76fc2110-562d-436c-a83e-7588295214ef",
+            "name": "Vliv 3-chinuklidyl benzilátu na učení a paměť",
+            "published_year": "1977",
+            "place_of_publication": "",
+            "publication_type_id": "3a66d390-0aed-465f-9e9a-9db2dab528b3",
+            "valid": true,
+            "link": "https://apl.unob.cz/vvi/Vysledek/552180"
+        },
+        {
+            "id": "731064ed-5018-4280-af86-d7fb11b24359",
+            "name": "The function of sulfhydryl groups in lactate dehydrogenase isolated from soy been seedlings using blue dextran-sepharose",
+            "published_year": "Obsah výsledku nepodléhající ochraně podle zvláštních právních předpisů",
+            "place_of_publication": "",
+            "publication_type_id": "d2c95e7e-8bbb-47f7-81e9-bb9831a11ebe",
+            "valid": true,
+            "link": "https://apl.unob.cz/vvi/Vysledek/538243"
+        },
+        {
+            "id": "54da5d93-da50-4b0d-8e5b-d05a619891c5",
+            "name": "Vliv diazepamu na toxické, farmakologické a radioprotektivní účinky k cystaminu",
+            "published_year": "1977",
+            "place_of_publication": "",
+            "publication_type_id": "3a66d390-0aed-465f-9e9a-9db2dab528b3",
+            "valid": true,
+            "link": "https://apl.unob.cz/vvi/Vysledek/553108"
+        },
+        {
+            "id": "6913c579-a674-464e-a4d8-e092ed2b9e42",
+            "name": "Tacrin a jeho analoga - antidota psychoaktivních látek s anticholinergním účinkem",
+            "published_year": "1977",
+            "place_of_publication": "",
+            "publication_type_id": "d2c95e7e-8bbb-47f7-81e9-bb9831a11ebe",
+            "valid": true,
+            "link": "https://apl.unob.cz/vvi/Vysledek/539963"
+        },
+        {
+            "id": "37507164-6cb4-42f1-ae7f-4dc3e14a6f52",
+            "name": "Postgraduální školení o neurochemických metodách pro studium metabolismu možných transmiterů v nervovém systému",
+            "published_year": "1977",
+            "place_of_publication": "",
+            "publication_type_id": "d2c95e7e-8bbb-47f7-81e9-bb9831a11ebe",
+            "valid": true,
+            "link": "https://apl.unob.cz/vvi/Vysledek/540147"
+        },
+        {
+            "id": "d4d46f4c-9695-4c0f-a20c-a144d908b1a8",
+            "name": "Analogues of 9-amino-1,2,3,4-tetrahydroacridine",
+            "published_year": "1977",
+            "place_of_publication": "",
+            "publication_type_id": "d2c95e7e-8bbb-47f7-81e9-bb9831a11ebe",
+            "valid": true,
+            "link": "https://apl.unob.cz/vvi/Vysledek/540156"
+        },
+        {
+            "id": "24ba279a-1615-4f5b-b78c-7b7d26e8df88",
+            "name": "Mycí procesy speciální očisty",
+            "published_year": "1977",
+            "place_of_publication": "Hradec Králové",
+            "publication_type_id": "7bd92762-5c5a-424f-b405-5a016b165e3e",
+            "valid": true,
+            "link": "https://apl.unob.cz/vvi/Vysledek/543482"
+        },
+        {
+            "id": "78f39d88-8a8c-4b6a-bde4-9c07395a6959",
+            "name": "Serum levels of IgA, IgM, IgD and IgG paraproteinemias",
+            "published_year": "Obsah výsledku nepodléhající ochraně podle zvláštních právních předpisů",
+            "place_of_publication": "",
+            "publication_type_id": "d2c95e7e-8bbb-47f7-81e9-bb9831a11ebe",
+            "valid": true,
+            "link": "https://apl.unob.cz/vvi/Vysledek/538142"
+        },
+        {
+            "id": "c4064cde-c3a2-4ce1-9147-6d0ac1c49042",
+            "name": "Pokus o využití in vitro ultrazvukem ozvučeného transplantátu k léčbě dřeňového syndromu akutní nemoci z ozáření",
+            "published_year": "1977",
+            "place_of_publication": "",
+            "publication_type_id": "3a66d390-0aed-465f-9e9a-9db2dab528b3",
+            "valid": true,
+            "link": "https://apl.unob.cz/vvi/Vysledek/547697"
+        },
+        {
+            "id": "379ac9bd-44ad-4b84-9135-3c8db75a0925",
+            "name": "Molecular forms of rat brain hydrolases and their interaction with various inhibitors",
+            "published_year": "1977",
+            "place_of_publication": "",
+            "publication_type_id": "d2c95e7e-8bbb-47f7-81e9-bb9831a11ebe",
+            "valid": true,
+            "link": "https://apl.unob.cz/vvi/Vysledek/540137"
+        },
+        {
+            "id": "89a117c6-cffd-4549-9964-aafcf936db2a",
+            "name": "Reflexívní agresivita krys a její farmakologické ovlivnění",
+            "published_year": "1977",
+            "place_of_publication": "",
+            "publication_type_id": "3a66d390-0aed-465f-9e9a-9db2dab528b3",
+            "valid": true,
+            "link": "https://apl.unob.cz/vvi/Vysledek/552166"
+        },
+        {
+            "id": "5e83578d-11c5-43f4-b31a-1792371bfa2b",
+            "name": "Oblékli jsme bílé pláště",
+            "published_year": "1977",
+            "place_of_publication": "",
+            "publication_type_id": "d2c95e7e-8bbb-47f7-81e9-bb9831a11ebe",
+            "valid": true,
+            "link": "https://apl.unob.cz/vvi/Vysledek/540098"
+        },
+        {
+            "id": "bd341f6d-22d4-4290-885b-a68f9637370b",
+            "name": "Možnosti léčebného použití bílkovinných frakcí séra ke stimulaci krvetvorby u ozářených krys a myší",
+            "published_year": "1977",
+            "place_of_publication": "",
+            "publication_type_id": "3a66d390-0aed-465f-9e9a-9db2dab528b3",
+            "valid": true,
+            "link": "https://apl.unob.cz/vvi/Vysledek/552393"
+        },
+        {
+            "id": "cf5cc28c-6d7a-4141-99f9-54234aad3b72",
+            "name": "In vitro inhibition of soluble brain acetylcholinesterase by organophosphates of the O-ethyl-S-(2-dialkylaminoethyl)-methylphosphonothiolate type",
+            "published_year": "1977",
+            "place_of_publication": "",
+            "publication_type_id": "d2c95e7e-8bbb-47f7-81e9-bb9831a11ebe",
+            "valid": true,
+            "link": "https://apl.unob.cz/vvi/Vysledek/540728"
+        },
+        {
+            "id": "37256322-5172-4ee6-b337-ab3265c63b59",
+            "name": "Effect of some centrally active compounds on aggressive behavior in septal rats",
+            "published_year": "1977",
+            "place_of_publication": "",
+            "publication_type_id": "d2c95e7e-8bbb-47f7-81e9-bb9831a11ebe",
+            "valid": true,
+            "link": "https://apl.unob.cz/vvi/Vysledek/540349"
+        },
+        {
+            "id": "c4c46b58-96e3-4a4f-b023-24451047a0b7",
+            "name": "Autoinjektor GAI. Zpráva o vojskových zkouškách prototypu V-23",
+            "published_year": "1977",
+            "place_of_publication": "Hradec Králové",
+            "publication_type_id": "7bd92762-5c5a-424f-b405-5a016b165e3e",
+            "valid": true,
+            "link": "https://apl.unob.cz/vvi/Vysledek/553180"
+        },
+        {
+            "id": "04651c66-ba91-476a-94fd-f1776a51e2ce",
+            "name": "Punkční koniotomie",
+            "published_year": "1977",
+            "place_of_publication": "",
+            "publication_type_id": "d2c95e7e-8bbb-47f7-81e9-bb9831a11ebe",
+            "valid": true,
+            "link": "https://apl.unob.cz/vvi/Vysledek/540144"
+        },
+        {
+            "id": "6518fc21-3f0f-420d-82a8-22a43fed2dbf",
+            "name": "Zum Wirkungsmechanismus von Chlorderivaten der Isozyannursäure",
+            "published_year": "1977",
+            "place_of_publication": "Kramer, A.; Wigert, H.: Beiträge zur Desinfektion und zum infektiösen Hospitalismus. 1. vyd. 417s",
+            "publication_type_id": "fcdcb226-a394-4c8f-9a70-d11e5b3e1e6f",
+            "valid": true,
+            "link": "https://apl.unob.cz/vvi/Vysledek/551222"
+        },
+        {
+            "id": "c96cd49b-c855-41be-88b6-defa3c5cba2d",
+            "name": "Setkání v Krkonoších",
+            "published_year": "1977",
+            "place_of_publication": "",
+            "publication_type_id": "d2c95e7e-8bbb-47f7-81e9-bb9831a11ebe",
+            "valid": true,
+            "link": "https://apl.unob.cz/vvi/Vysledek/540103"
+        },
+        {
+            "id": "21c5b2c9-f965-405b-b998-49055a97563e",
+            "name": "Reflexívní agresivita krys a její farmakologické ovlivnění. I. Reflexivní zápasení normálních krys a krys s lézemi septa a jeho reliabilita",
+            "published_year": "1977",
+            "place_of_publication": "",
+            "publication_type_id": "3a66d390-0aed-465f-9e9a-9db2dab528b3",
+            "valid": true,
+            "link": "https://apl.unob.cz/vvi/Vysledek/552674"
+        },
+        {
+            "id": "cec540d9-9b2b-489b-a3b8-8b6dcef72640",
+            "name": "Ochranný vliv fyzikálního stínění radiosensitivních systémů u krys",
+            "published_year": "1977",
+            "place_of_publication": "",
+            "publication_type_id": "3a66d390-0aed-465f-9e9a-9db2dab528b3",
+            "valid": true,
+            "link": "https://apl.unob.cz/vvi/Vysledek/548142"
+        },
+        {
+            "id": "4d549cac-dcd7-44d1-a908-ffa3629b3b26",
+            "name": "Změny krevních bílkovin u klasické polyarteritis nodosa a diagnostický význam alfa-1 globulinu a SH skupin",
+            "published_year": "1977",
+            "place_of_publication": "",
+            "publication_type_id": "d2c95e7e-8bbb-47f7-81e9-bb9831a11ebe",
+            "valid": true,
+            "link": "https://apl.unob.cz/vvi/Vysledek/540427"
+        },
+        {
+            "id": "9d994afe-346b-4424-988a-f1d00d303e9d",
+            "name": "Význam léčby nemocných v aseptickém prostředí pro vojenskou medicínu",
+            "published_year": "1977",
+            "place_of_publication": "",
+            "publication_type_id": "d2c95e7e-8bbb-47f7-81e9-bb9831a11ebe",
+            "valid": true,
+            "link": "https://apl.unob.cz/vvi/Vysledek/540166"
         }
     ]
 }
