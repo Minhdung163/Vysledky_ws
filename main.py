@@ -274,6 +274,42 @@ def write_publication_types(url, username, password, result_links):
     results = {"publication_types": publication_types_list}
     return results
 
+def scrape_publication_user(url, username, password):
+    driver = login(url, username, password)
+    while True:
+        try:
+            expand_button = driver.find_element(By.XPATH, "/html/body/div/main/div[1]/div[3]/div/div[2]/button")
+            actions = ActionChains(driver)
+            actions.move_to_element(expand_button).click(expand_button).perform()
+            sleep(2)
+        except NoSuchElementException:
+            break
+
+        # Check for the alert element
+        try:
+            alert_element = driver.find_element(By.CSS_SELECTOR, ".alert.m-0.alert-info")
+            # If the element is found, break the loop
+            break
+        except NoSuchElementException:
+            # If the element is not found, continue with the next iteration
+            continue
+    
+    tbody = driver.find_element(By.ID, "AutoriListBody")
+    rows = tbody.find_elements(By.TAG_NAME, "tr")
+
+    names = [row.find_element(By.TAG_NAME, "td").text for row in rows]
+    names = set(names)
+    
+    users = [{"id": str(uuid4()), "name": name} for name in names]
+
+    # Write the authors and UUIDs to a JSON file
+    with open("user.json", "w", encoding="utf-8") as f:
+        json.dump(users, f, ensure_ascii=False, indent=4)
+
+    driver.quit()
+
+    return users
+
 def main():
     #Logging in
     with open("infor.txt", "r") as f:
@@ -282,6 +318,7 @@ def main():
     password = lines[1].strip()
     main_url = "https://apl.unob.cz/vvi/Vysledky"
     base_url = "https://apl.unob.cz/vvi/Vysledky?RokUplatneniList={year}&NazevVysledku=&Doi=&NazevCelku=&Issn=&KodUtIsi=&ScopusEid=&JeValidni="
+    author_url= "https://apl.unob.cz/vvi/Autori"
     
     # # Scrape the publication links
     # for year in range(1951, 2025): 
@@ -295,13 +332,13 @@ def main():
     
     
     
-    with open("result_links_test.txt", "r") as file:
-        result_links = file.read().splitlines()
+    # with open("result_links_test.txt", "r") as file:
+    #     result_links = file.read().splitlines()
     
-    publication_data = write_publication(main_url, username, password, result_links)
+    # publication_data = write_publication(main_url, username, password, result_links)
         
-    with open("result_data_test7.json", "w", encoding = "utf-8") as f:
-        json.dump(publication_data, f, ensure_ascii=False, indent=4, default=lambda o: '<not serializable>)')
+    # with open("result_data_test8.json", "w", encoding = "utf-8") as f:
+    #     json.dump(publication_data, f, ensure_ascii=False, indent=4, default=lambda o: '<not serializable>)')
     
 
     # publication_types_data = write_publication_types(main_url, username, password, result_links)
@@ -309,6 +346,8 @@ def main():
     # with open("publication_types.json", "w", encoding = "utf-8") as f:
     #     f.write(json.dumps(publication_types_data, ensure_ascii=False, indent=4))
         
+    # # Scrape the publication authors
+    # scrape_publication_author(author_url, username, password)    
     
 
     
