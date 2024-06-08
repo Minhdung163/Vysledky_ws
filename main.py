@@ -300,7 +300,7 @@ def main():
     
     publication_data = write_publication(main_url, username, password, result_links)
         
-    with open("result_data_test6.json", "w", encoding = "utf-8") as f:
+    with open("result_data_test7.json", "w", encoding = "utf-8") as f:
         json.dump(publication_data, f, ensure_ascii=False, indent=4, default=lambda o: '<not serializable>)')
     
 
