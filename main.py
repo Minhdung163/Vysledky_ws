@@ -253,7 +253,7 @@ def scrape_publication_links(url, username, password):
 def write_publication(url, username, password, result_links):
     driver = login(url, username, password)
     
-    publications = []  # Ensure this is outside the loop to accumulate data
+    publications = []  
     for result_link in result_links:
         publication_data = get_publication(driver, result_link)
         publications.append(publication_data)  # Append each publication's data
