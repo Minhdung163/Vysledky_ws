@@ -1,0 +1,22 @@
+{
+    "publications": [
+        {
+            "id": "35c6f55e-8900-4859-87c5-10ecd73544d0",
+            "name": "Immnunization strategy against meningococcal diseases in the Czech Army (1993-1998)",
+            "published_year": "2000",
+            "place_of_publication": "Hradec Králové",
+            "publication_type_id": "106885ec-e900-4b69-a30f-fe2437655bb5",
+            "valid": true,
+            "reference": "https://apl.unob.cz/vvi/Vysledek/539515"
+        },
+        {
+            "id": "5c47bf9c-f91b-4740-9991-ff8025a4f149",
+            "name": "Cells from whole blood for transplantation (improved priming and yiels of progenitor cells)",
+            "published_year": "2000",
+            "place_of_publication": "České Budějovice",
+            "publication_type_id": "cefb4218-5a23-44ef-98bf-1b798f200440",
+            "valid": true,
+            "reference": "https://apl.unob.cz/vvi/Vysledek/542197"
+        }
+    ]
+}

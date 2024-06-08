@@ -113,14 +113,54 @@ def get_attachments_result(driver, result_link):
             attachments.append(attachment)
     return attachments
 
+def find_place_publication(tbody_xpath, driver):
+    # Find all rows in the tbody
+    rows = driver.find_elements(By.XPATH, f"{tbody_xpath}/tr")
+
+    # Initialize a variable to store the td text for 'Místo vydání'
+    misto_vydani_td_text = None
+
+    # Iterate through each row
+    for row in rows:
+        # Find the th element in the current row
+        th = row.find_element(By.XPATH, ".//th")
+        # Check if the th text is 'Místo vydání'
+        if th.text == "Místo vydání":
+            # If it is, find the td element in the same row and extract its text
+            td = row.find_element(By.XPATH, ".//td")
+            misto_vydani_td_text = td.text
+            break  # Stop searching once found
+
+    return misto_vydani_td_text
+        
+def find_time_publication(tbody_xpath, driver):
+    # Find all rows in the tbody
+    rows = driver.find_elements(By.XPATH, f"{tbody_xpath}/tr")
+
+    # Initialize a variable to store the td text for 'Rok uplatnění'
+    rok_uplatneni_td_text = None
+
+    # Iterate through each row
+    for row in rows:
+        # Find the th element in the current row
+        th = row.find_element(By.XPATH, ".//th")
+        # Check if the th text is 'Rok uplatnění'
+        if th.text == "Rok uplatnění":
+            # If it is, find the td element in the same row and extract its text
+            td = row.find_element(By.XPATH, ".//td")
+            rok_uplatneni_td_text = td.text
+            break  # Stop searching once found
+
+    return rok_uplatneni_td_text 
+
 def get_publication(driver,result_link):
     driver.get(result_link)
     sleep(2)
 
     id = str(uuid4())
     name = driver.find_element(By.XPATH, "/html/body/div/main/div[1]/div[7]/div/div/div[2]/table/tbody/tr[3]/td").text
-    published_year = driver.find_element(By.XPATH, "/html/body/div/main/div[1]/div[7]/div/div/div[2]/table/tbody/tr[8]/td").text
-    place_of_publication = driver.find_element(By.XPATH, "/html/body/div/main/div[1]/div[8]/div/div/div[2]/table/tbody/tr[3]/td").text
+    published_year = find_time_publication("/html/body/div/main/div[1]/div[7]/div/div/div[2]/table/tbody", driver)
+    place_of_publication = find_place_publication("/html/body/div/main/div[1]/div[8]/div/div/div[2]/table/tbody", driver)
     publication_type_name = driver.find_element(By.XPATH, "/html/body/div/main/div[1]/div[7]/div/div/div[2]/table/tbody/tr[1]/td").text
     valid = True
     
@@ -260,7 +300,7 @@ def main():
     
     publication_data = write_publication(main_url, username, password, result_links)
         
-    with open("result_data_test.json", "w", encoding = "utf-8") as f:
+    with open("result_data_test6.json", "w", encoding = "utf-8") as f:
         json.dump(publication_data, f, ensure_ascii=False, indent=4, default=lambda o: '<not serializable>)')
     
 
