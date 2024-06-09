@@ -2,67 +2,43 @@
     "publication_types": [
         {
             "id": "4b29c5ad-fcb5-48c0-93bc-af9f49ca2f80",
-            "name": "Uspořádání workshopu"
+            "name": "Uspořádání workshopu",
+            "name_en": "Workshop Organization"
         },
         {
             "id": "cefb4218-5a23-44ef-98bf-1b798f200440",
-            "name": "Ostatní"
+            "name": "Ostatní",
+            "name_en": "Other"
         },
         {
             "id": "51c5bf3f-0c70-4c2e-95b9-d70730e7cc3c",
-            "name": "Audiovizuální tvorba"
+            "name": "Audiovizuální tvorba",
+            "name_en": "Audiovisual Creation"
         },
         {
             "id": "106885ec-e900-4b69-a30f-fe2437655bb5",
-            "name": "Recenzovaný odborný článek"
+            "name": "Recenzovaný odborný článek",
+            "name_en": "Peer-reviewed Article"
         },
         {
             "id": "6bf87ad6-34c7-4b70-9870-4597a0ff1b6e",
-            "name": "Stať ve sborníku"
+            "name": "Stať ve sborníku",
+            "name_en": "Conference Proceedings Article"
         },
         {
             "id": "0277345a-fc53-4c32-a5ab-733b313563c2",
-            "name": "Kapitola/y v odborné knize"
+            "name": "Kapitola/y v odborné knize",
+            "name_en": "Chapter/s in a Scholarly Book"
         },
         {
             "id": "e9eba1ef-47db-4ac9-a332-b400a47a620c",
-            "name": "Software"
+            "name": "Software",
+            "name_en": "Software"
         },
         {
             "id": "71505f0a-d965-4662-8e51-ee02667aaeff",
-            "name": "Odborná kniha"
-        },
-        {
-            "id": "54083522-f010-45d6-b831-a8a153cbaf82",
-            "name": "Uspořádání konference"
-        },
-        {
-            "id": "872ac1f0-a588-4731-8d32-27c9f6524d45",
-            "name": "Poskytovatelem realizované výsledky"
-        },
-        {
-            "id": "bb52e95e-455e-41c7-be3d-ed9e058c577a",
-            "name": "Prototyp / funkční vzorek"
-        },
-        {
-            "id": "7ba5ccba-573a-47c7-9234-b07de1f77e65",
-            "name": "Užitný vzor / průmyslový vzor"
-        },
-        {
-            "id": "c8f8e31b-3c49-4a3d-9e8f-67587d2b97cc",
-            "name": "Uspořádání výstavy"
-        },
-        {
-            "id": "19a0391a-1a36-435b-b809-420dfb8b0d77",
-            "name": "Výzkumná zpráva"
-        },
-        {
-            "id": "0cafda86-e056-4322-8188-9632f1ae4926",
-            "name": "Patent"
-        },
-        {
-            "id": "9bb7dd95-526b-4abd-804b-80ff4ee46caf",
-            "name": "Metodiky / postupy / mapy"
+            "name": "Odborná kniha",
+            "name_en": "Scholarly Book"
         }
     ]
 }

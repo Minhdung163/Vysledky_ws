@@ -35,20 +35,6 @@ def get_basic_infor_result(driver, result_link):
             item_data[key] = value
     return item_data
 
-def get_list_of_authors(driver, result_link):
-    keys2 = ["Pořadí", "Příjmení Jméno", "Podíl [%]", "Vztah", "Součást v době uplatnění výsledku", "Další"]
-    driver.get(result_link)
-    sleep(2)
-    table = driver.find_element(By.XPATH, "/html/body/div/main/div[1]/div[5]/div/div/div[2]/table")
-    rows = table.find_elements(By.TAG_NAME, "tr")
-    authors = []
-    for row in rows:
-        cells = row.find_elements(By.TAG_NAME, "td")
-        if len(cells) == len(keys2):
-            author = {keys2[i]: cell.text for i, cell in enumerate(cells)}
-            authors.append(author)
-    return authors
-
 def get_data_by_type_of_result(driver, result_link):    
     keys3 = ["Forma vydání", "ISBN nebo ISMN", "Místo vydání", "Název edice a číslo svazku", "Počet stran knihy", "Počet výtisků", "Odkaz na záznam v Databázi Národní knihovny ČR", "Vydání (verze) knihy", "Název nakladatele", "Kód UT WoS knihy podle Web of Science", "EID knihy podle Scopus"]
 
@@ -113,45 +99,25 @@ def get_attachments_result(driver, result_link):
             attachments.append(attachment)
     return attachments
 
-def find_place_publication(tbody_xpath, driver):
+def find_publication_detail(tbody_xpath, driver, search_text):
     # Find all rows in the tbody
     rows = driver.find_elements(By.XPATH, f"{tbody_xpath}/tr")
 
-    # Initialize a variable to store the td text for 'Místo vydání'
-    misto_vydani_td_text = None
+    # Initialize a variable to store the td text for the search_text
+    detail_td_text = None
 
     # Iterate through each row
     for row in rows:
         # Find the th element in the current row
         th = row.find_element(By.XPATH, ".//th")
-        # Check if the th text is 'Místo vydání'
-        if th.text == "Místo vydání":
-            # If it is, find the td element in the same row and extract its text
+        # Check if the th text matches the search_text
+        if th.text == search_text:
+            # If it does, find the td element in the same row and extract its text
             td = row.find_element(By.XPATH, ".//td")
-            misto_vydani_td_text = td.text
+            detail_td_text = td.text
             break  # Stop searching once found
 
-    return misto_vydani_td_text
-        
-def find_time_publication(tbody_xpath, driver):
-    # Find all rows in the tbody
-    rows = driver.find_elements(By.XPATH, f"{tbody_xpath}/tr")
-
-    # Initialize a variable to store the td text for 'Rok uplatnění'
-    rok_uplatneni_td_text = None
-
-    # Iterate through each row
-    for row in rows:
-        # Find the th element in the current row
-        th = row.find_element(By.XPATH, ".//th")
-        # Check if the th text is 'Rok uplatnění'
-        if th.text == "Rok uplatnění":
-            # If it is, find the td element in the same row and extract its text
-            td = row.find_element(By.XPATH, ".//td")
-            rok_uplatneni_td_text = td.text
-            break  # Stop searching once found
-
-    return rok_uplatneni_td_text 
+    return detail_td_text
 
 def get_publication(driver,result_link):
     driver.get(result_link)
@@ -159,8 +125,8 @@ def get_publication(driver,result_link):
 
     id = str(uuid4())
     name = driver.find_element(By.XPATH, "/html/body/div/main/div[1]/div[7]/div/div/div[2]/table/tbody/tr[3]/td").text
-    published_year = find_time_publication("/html/body/div/main/div[1]/div[7]/div/div/div[2]/table/tbody", driver)
-    place_of_publication = find_place_publication("/html/body/div/main/div[1]/div[8]/div/div/div[2]/table/tbody", driver)
+    published_year = find_publication_detail("/html/body/div/main/div[1]/div[7]/div/div/div[2]/table/tbody", driver, "Rok uplatnění")
+    place_of_publication = find_publication_detail("/html/body/div/main/div[1]/div[8]/div/div/div[2]/table/tbody", driver, "Místo vydání")
     publication_type_name = driver.find_element(By.XPATH, "/html/body/div/main/div[1]/div[7]/div/div/div[2]/table/tbody/tr[1]/td").text
     valid = True
     
@@ -171,7 +137,6 @@ def get_publication(driver,result_link):
 
     # Find the publication type with the matching name and get its id
     publication_type_id = next((item['id'] for item in publication_types if item['name'] == publication_type_name), None)
-
 
     return {
         "id": id, 
@@ -194,6 +159,55 @@ def get_publication_types(driver, result_link):
         "id": id, 
         "name": name
     }
+    
+def get_list_of_authors(driver, result_link):
+    # Load the user.json file
+    with open("user.json", "r", encoding='utf-8') as file:
+        users = json.load(file)
+        
+    # Load the result_data_test.json file
+    with open("result_data_test.json", "r", encoding='utf-8') as file:
+        publications_data = json.load(file)
+    
+    driver.get(result_link)
+    sleep(2)
+    
+    try:
+        tbody_element = driver.find_element(By.XPATH, "/html/body/div/main/div[1]/div[5]/div/div/div[2]/table/tbody")
+        # Proceed with operations on tbody_element if found
+    except NoSuchElementException:
+        # Element not found, skip or handle accordingly
+        pass
+    
+    rows = tbody_element.find_elements(By.TAG_NAME, "tr")
+    authors = []
+    
+    for row in rows:
+        cells = row.find_elements(By.TAG_NAME, "td")
+        author_name = cells[1].text
+        
+        # Search for the author in the loaded users
+        matching_user = next((user for user in users if user["name"] == author_name), None)
+        
+        # If a matching user is found, use its ID; otherwise, generate a new UUID
+        user_id = matching_user["id"] if matching_user else str(uuid4())
+        
+        # Search for a matching publication reference
+        matching_publication = next((pub for pub in publications_data["publications"] if pub["reference"] == result_link), None)
+        
+        # If a matching publication is found, use its ID for the author
+        if matching_publication:
+            publication_id = matching_publication["id"]
+        
+        author = {
+            "id": str(uuid4()),
+            "user_id": user_id,
+            "publication_id": publication_id,
+            "order": cells[0].text,
+            "share": cells[2].text
+        }
+        authors.append(author)
+    return authors
 
 
 def login(url, username, password):
@@ -249,31 +263,6 @@ def scrape_publication_links(url, username, password):
 
     return result_links
 
-
-def write_publication(url, username, password, result_links):
-    driver = login(url, username, password)
-    
-    publications = []  
-    for result_link in result_links:
-        publication_data = get_publication(driver, result_link)
-        publications.append(publication_data)  # Append each publication's data
-        
-    results = {"publications": publications}  # Wrap the accumulated list
-    return results
-
-def write_publication_types(url, username, password, result_links):
-    driver = login(url, username, password)
-    
-    publication_types_list = []
-    seen_names = set()
-    for result_link in result_links:
-        publication_types = get_publication_types(driver, result_link)
-        if publication_types['name'] not in seen_names:
-            seen_names.add(publication_types['name'])
-            publication_types_list.append(publication_types)
-    results = {"publication_types": publication_types_list}
-    return results
-
 def scrape_publication_user(url, username, password):
     driver = login(url, username, password)
     while True:
@@ -310,6 +299,42 @@ def scrape_publication_user(url, username, password):
 
     return users
 
+def write_publication(url, username, password, result_links):
+    driver = login(url, username, password)
+    
+    publications = []  
+    for result_link in result_links:
+        publication_data = get_publication(driver, result_link)
+        publications.append(publication_data)  # Append each publication's data
+        
+    results = {"publications": publications}  # Wrap the accumulated list
+    return results
+
+def write_publication_types(url, username, password, result_links):
+    driver = login(url, username, password)
+    
+    publication_types_list = []
+    seen_names = set()
+    for result_link in result_links:
+        publication_types = get_publication_types(driver, result_link)
+        if publication_types['name'] not in seen_names:
+            seen_names.add(publication_types['name'])
+            publication_types_list.append(publication_types)
+    results = {"publication_types": publication_types_list}
+    return results
+
+def write_authors(url, result_links, username, password):
+    driver = login(url, username, password)
+    
+    authors = []
+    for result_link in result_links:
+        authors_data = get_list_of_authors(driver, result_link)
+        authors.append(authors_data)
+        
+    result = {"publication_authors": authors}
+    
+    return result
+
 def main():
     #Logging in
     with open("infor.txt", "r") as f:
@@ -332,8 +357,8 @@ def main():
     
     
     
-    # with open("result_links_test.txt", "r") as file:
-    #     result_links = file.read().splitlines()
+    with open("result_links_test.txt", "r") as file:
+        result_links = file.read().splitlines()
     
     # publication_data = write_publication(main_url, username, password, result_links)
         
@@ -346,9 +371,13 @@ def main():
     # with open("publication_types.json", "w", encoding = "utf-8") as f:
     #     f.write(json.dumps(publication_types_data, ensure_ascii=False, indent=4))
         
-    # # Scrape the publication authors
-    # scrape_publication_author(author_url, username, password)    
+    # # Scrape the publication users
+    # scrape_publication_user(author_url, username, password)    
     
+    author_data = write_authors(main_url, result_links, username, password)
+    
+    with open("publication_authors2.json", "w", encoding = "utf-8") as f:
+        f.write(json.dumps(author_data, ensure_ascii=False, indent=4))
 
     
       
