@@ -9,12 +9,14 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.action_chains import ActionChains
 from bs4 import BeautifulSoup
 from uuid import uuid4
+from dbwriter import DBWriter
 
 from time import sleep
 import base64
 import re
 import json
 import os
+import asyncio
 
 import getpass
 
@@ -383,6 +385,29 @@ def create_publication_category():
     
     return category
 
+def creat_externalids():
+    # Load the initial data from the JSON file
+    with open("publications.json", "r", encoding='utf-8') as initial_file:
+        data = json.load(initial_file)
+    # Create a new JSON structure for externalids
+    externalids = []
+
+    for publication in data["publications"]:
+        outer_id = re.search(r'\d+$', publication["reference"]).group()
+        external_id_entry = {
+            "id": str(uuid4()),
+            "inner_id": publication["id"],  
+            "outer_id": outer_id,
+            "typeid_id": publication["publication_type_id"]
+        }
+        externalids.append(external_id_entry)
+
+    result = {"externalids": externalids}
+
+    # Save externalids to a JSON file
+    with open("externalids1.json", "w") as result_file:
+        json.dump(result, result_file, indent=4)
+
 def merge_data():
 
     with (open("publication_authors2.json", "r", encoding="utf-8") as publication_authors,
@@ -400,6 +425,36 @@ def merge_data():
         # Step 3: Write the merged data to a new JSON file
         with open("systemdata.json", "w", encoding="utf-8") as f:
             json.dump(merged_data, f, ensure_ascii=False, indent=4)
+            
+async def insert_publications_from_json(db_writer):
+    # Load publications data
+    with open("publications.json", "r", encoding="utf-8") as file:
+        publications = json.load(file)["publications"]
+
+    # Load external IDs data
+    with open("externalids1.json", "r", encoding="utf-8") as file:
+        externalids = json.load(file)["externalids"]
+
+    # Create a mapping from inner_id to external ID details for quick lookup
+    externalid_map = {item["inner_id"]: item for item in externalids}
+
+    for publication in publications:
+        # Prepare data for insertion
+        table_name = "Publication"
+        publication_inner_id = publication.get("id")
+
+        # Lookup the matching external ID entry using the map
+        matching_entry = externalid_map.get(publication_inner_id)
+
+        if matching_entry:
+            # Extract needed values if a matching entry is found
+            outer_id = matching_entry["outer_id"]
+            outer_id_type_id = matching_entry["typeid_id"]
+            # Insert with outer_id and outer_id_type_id
+            await db_writer.Create(table_name, publication, outer_id, outer_id_type_id)
+        else:
+            # Insert without outer_id and outer_id_type_id if no match is found
+            await db_writer.Create(table_name, publication)
 
 def main():
     #Logging in
@@ -424,28 +479,7 @@ def main():
     # # Load the initial data from the JSON file
     # with open("publications.json", "r") as initial_file:
     #     data = json.load(initial_file)
-
-    # # Create a new JSON structure for externalids
-    # externalids = []
-
-    # for publication in data["publications"]:
-    #     outer_id = re.search(r'\d+$', publication["reference"]).group()
-    #     external_id_entry = {
-    #         "inner_id": str(uuid4()),
-    #         "outer_id": outer_id,
-    #         "typeid_id": publication["publication_type_id"]
-    #     }
-    #     externalids.append(external_id_entry)
-
-    # result = {"externalids": externalids}
-
-    # # Save externalids to a JSON file
-    # with open("externalids.json", "w") as result_file:
-    #     json.dump(result, result_file, indent=4)
-    
-    
-    
-    
+   
     with open("result_links_test.txt", "r") as file:
         result_links = file.read().splitlines()
     
@@ -468,6 +502,10 @@ def main():
     # with open("publication_authors2.json", "w", encoding = "utf-8") as f:
     #     f.write(json.dumps(author_data, ensure_ascii=False, indent=4))
     # merge_data()
+    #creat_externalids()
+    
+    db_writer = DBWriter()  # Instantiate your DBWriter (adjust if the constructor requires parameters)
+    asyncio.run(insert_publications_from_json(db_writer))
     
 
     
