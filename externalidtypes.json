@@ -1,0 +1,8 @@
+{
+    "externalidtypes": {
+        "id": "b37d6847-4322-4502-8def-bc3a5177f046",
+        "name": "Vysledky",
+        "name_en": "Results",
+        "urlformat": "https://apl.unob.cz/vvi/Vysledky/%s"
+    }
+}

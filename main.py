@@ -335,6 +335,19 @@ def write_authors(url, result_links, username, password):
     
     return result
 
+
+def insert_externalidstypeid():
+    externalidtypes = []
+    new_type = {
+        "id": str(uuid4()),
+        "name": "Vysledky",
+        "name_en": "Results",
+        "urlformat": "https://apl.unob.cz/vvi/Vysledky/%s"
+    }
+    result = {"externalidtypes": new_type}
+    with open("externalidtypes.json", "w") as type:
+        json.dump(result, type, indent=4)
+
 def main():
     #Logging in
     with open("infor.txt", "r") as f:
@@ -358,16 +371,20 @@ def main():
     # # Load the initial data from the JSON file
     # with open("publications.json", "r") as initial_file:
     #     data = json.load(initial_file)
+        
+    # with open("externalidtypes.json", "r") as initial_file:
+    #     type = json.load(initial_file)
 
     # # Create a new JSON structure for externalids
     # externalids = []
 
     # for publication in data["publications"]:
+    #     types = type["externalidtypes"]
     #     outer_id = re.search(r'\d+$', publication["reference"]).group()
     #     external_id_entry = {
     #         "inner_id": str(uuid4()),
     #         "outer_id": outer_id,
-    #         "typeid_id": publication["publication_type_id"]
+    #         "typeid_id": types["id"]
     #     }
     #     externalids.append(external_id_entry)
 
@@ -378,7 +395,7 @@ def main():
     #     json.dump(result, result_file, indent=4)
     
     
-    
+    # insert_externalidstypeid()
     
     with open("result_links_test.txt", "r") as file:
         result_links = file.read().splitlines()
