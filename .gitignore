@@ -10,8 +10,8 @@ __pycache__/
 secret
 passwords.*
 scraped
-infor.txt
-error.txt
+*.txt
+*.json
 
 
 # Distribution / packaging

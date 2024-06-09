@@ -135,7 +135,7 @@ def get_publication(driver,result_link):
     # Read the publication types from the JSON file
     with open("publication_types.json", "r", encoding="utf-8") as f:
         data = json.load(f)
-    publication_types = data['publication_types']
+    publication_types = data['publicationtypes']
 
     # Find the publication type with the matching name and get its id
     publication_type_id = next((item['id'] for item in publication_types if item['name'] == publication_type_name), None)
@@ -401,72 +401,106 @@ def creat_externalids():
     # Load the initial data from the JSON file
     with open("publications.json", "r", encoding='utf-8') as initial_file:
         data = json.load(initial_file)
+        
+    with open("externalidtypes.json", "r", encoding='utf-8') as f:
+        types = json.load(f)
+
     # Create a new JSON structure for externalids
     externalids = []
 
     for publication in data["publications"]:
+        externalid_types = types["externalidtypes"]
         outer_id = re.search(r'\d+$', publication["reference"]).group()
         external_id_entry = {
             "id": str(uuid4()),
             "inner_id": publication["id"],  
             "outer_id": outer_id,
-            "typeid_id": publication["publication_type_id"]
+            "typeid_id": externalid_types["id"]
         }
         externalids.append(external_id_entry)
 
     result = {"externalids": externalids}
 
     # Save externalids to a JSON file
-    with open("externalids1.json", "w") as result_file:
+    with open("externalids.json", "w") as result_file:
         json.dump(result, result_file, indent=4)
 
 def merge_data():
 
-    with (open("publication_authors2.json", "r", encoding="utf-8") as publication_authors,
+    with (open("publication_authors.json", "r", encoding="utf-8") as publication_authors,
           open("publication_types.json", "r", encoding="utf-8") as publication_types,
           open("publications.json", "r", encoding="utf-8") as publications,
-          open("externalids.json", "r", encoding="utf-8") as externalIds):
+          open("externalids.json", "r", encoding="utf-8") as externalIds,
+          open("publication_categories.json", "r", encoding="utf-8") as publication_categories):
 
+        ext_ids = json.load(externalIds)
         data_authors = json.load(publication_authors)
+        data_categories = json.load(publication_categories)
         data_types = json.load(publication_types)
         data_publication = json.load(publications)
-        ext_ids = json.load(externalIds)
-
-        merged_data = [ext_ids, data_authors, data_types, data_publication ]
+        
+        merged_data = [ext_ids, data_categories, data_types, data_authors, data_publication]
 
         # Step 3: Write the merged data to a new JSON file
         with open("systemdata.json", "w", encoding="utf-8") as f:
             json.dump(merged_data, f, ensure_ascii=False, indent=4)
             
 async def insert_publications_from_json(db_writer):
+    print("Starting to insert publications from JSON...")
+
     # Load publications data
     with open("publications.json", "r", encoding="utf-8") as file:
         publications = json.load(file)["publications"]
+    print(f"Loaded {len(publications)} publications.")
+    print(publications[1])
 
     # Load external IDs data
-    with open("externalids1.json", "r", encoding="utf-8") as file:
+    with open("externalids.json", "r", encoding="utf-8") as file:
         externalids = json.load(file)["externalids"]
+    print(f"Loaded {len(externalids)} external IDs.")
 
     # Create a mapping from inner_id to external ID details for quick lookup
     externalid_map = {item["inner_id"]: item for item in externalids}
+    
+    awaitables = []
+    inserted_count = 0
 
     for publication in publications:
-        # Prepare data for insertion
-        table_name = "Publication"
-        publication_inner_id = publication.get("id")
+        try:
+            # Prepare data for insertion
+            table_name = "Publication"
+            publication_inner_id = publication.get("id")
 
-        # Lookup the matching external ID entry using the map
-        matching_entry = externalid_map.get(publication_inner_id)
+            # Lookup the matching external ID entry using the map
+            matching_entry = externalid_map.get(publication_inner_id)
 
-        if matching_entry:
-            # Extract needed values if a matching entry is found
-            outer_id = matching_entry["outer_id"]
-            outer_id_type_id = matching_entry["typeid_id"]
-            # Insert with outer_id and outer_id_type_id
-            await db_writer.Create(table_name, publication, outer_id, outer_id_type_id)
-        else:
-            # Insert without outer_id and outer_id_type_id if no match is found
-            await db_writer.Create(table_name, publication)
+            if matching_entry:
+                # Extract needed values if a matching entry is found
+                outer_id = matching_entry["outer_id"]
+                outer_id_type_id = matching_entry["typeid_id"]
+                # Insert with outer_id and outer_id_type_id
+                awaitables.append(db_writer.Create(table_name, publication, outer_id, outer_id_type_id))
+                print(f"Inserted publication with inner_id {publication_inner_id} including external IDs.")
+            else:
+                # Insert without outer_id and outer_id_type_id if no match is found
+                awaitables.append(db_writer.Create(table_name, publication))
+                print(f"Inserted publication with inner_id {publication_inner_id} without external IDs.")
+
+            if len(awaitables) > 9:
+                await asyncio.gather(*awaitables)
+                awaitables = []  # Reset the list after execution
+
+            inserted_count += 1
+        except Exception as e:
+            print(f"Error inserting publication {publication_inner_id}: {e}")
+
+    # Ensure any remaining awaitables are executed
+    if awaitables:
+        await asyncio.gather(*awaitables)
+        awaitables = []  # Reset the list after execution
+
+    print(f"Finished inserting publications. Total attempted: {len(publications)}. Total successfully inserted: {inserted_count}.")
+    return "ok"
 
 def main():
     #Logging in
@@ -488,33 +522,6 @@ def main():
     #         for link in links:
     #             f.write(link + "\n")
     
-    # # Load the initial data from the JSON file
-    # with open("publications.json", "r") as initial_file:
-    #     data = json.load(initial_file)
-        
-    # with open("externalidtypes.json", "r") as initial_file:
-    #     type = json.load(initial_file)
-
-    # # Create a new JSON structure for externalids
-    # externalids = []
-
-    # for publication in data["publications"]:
-    #     types = type["externalidtypes"]
-    #     outer_id = re.search(r'\d+$', publication["reference"]).group()
-    #     external_id_entry = {
-    #         "inner_id": str(uuid4()),
-    #         "outer_id": outer_id,
-    #         "typeid_id": types["id"]
-    #     }
-    #     externalids.append(external_id_entry)
-
-    # result = {"externalids": externalids}
-
-    # # Save externalids to a JSON file
-    # with open("externalids.json", "w") as result_file:
-    #     json.dump(result, result_file, indent=4)
-    
-    
     # insert_externalidstypeid()
     
     with open("result_links_test.txt", "r") as file:
@@ -525,7 +532,8 @@ def main():
     # with open("publications.json", "w", encoding = "utf-8") as f:
     #     json.dump(publication_data, f, ensure_ascii=False, indent=4, default=lambda o: '<not serializable>)')
     
-
+    #creat_externalids()
+    
     # publication_types_data = write_publication_types(main_url, username, password, result_links)
     
     # with open("publication_types.json", "w", encoding = "utf-8") as f:
@@ -538,8 +546,8 @@ def main():
     
     # with open("publication_authors2.json", "w", encoding = "utf-8") as f:
     #     f.write(json.dumps(author_data, ensure_ascii=False, indent=4))
-    # merge_data()
-    #creat_externalids()
+    
+    #merge_data()
     
     db_writer = DBWriter()  # Instantiate your DBWriter (adjust if the constructor requires parameters)
     asyncio.run(insert_publications_from_json(db_writer))

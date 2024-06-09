@@ -1,0 +1,7 @@
+{
+    result: externalidtypePage(limit: 1000) {
+        __typename
+        id
+        name
+    }
+}

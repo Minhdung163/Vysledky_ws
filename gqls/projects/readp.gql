@@ -1,0 +1,31 @@
+query ProjectPage($skip: Int = 0, $limit: Int = 10, $where: ProjectWhereFilter = {}) {
+  result: projectPage(skip: $skip, limit: $limit, where: $where) {
+    ...Project
+  }
+}
+
+fragment Project on ProjectGQLModel {
+  __typename
+  id
+  lastchange
+  name
+  startdate
+  enddate
+  valid
+  projectType {
+    id
+    name
+  }
+  created
+  createdby {
+    id
+    fullname
+  }
+  changedby {
+    id
+    fullname
+  }
+  rbacobject {
+    id
+  }
+}

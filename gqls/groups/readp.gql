@@ -1,0 +1,1 @@
+{ result: groupPage { __typename, id, name, nameEn}}

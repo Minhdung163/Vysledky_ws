@@ -4,3 +4,4 @@ Requests
 async_lru
 aiohttp
 asyncio
+setuptools

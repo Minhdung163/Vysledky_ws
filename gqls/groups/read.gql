@@ -1,0 +1,1 @@
+query ($id: UUID!) { result: groupById(id: $id) { __typename, id, lastchange, name, nameEn}}
