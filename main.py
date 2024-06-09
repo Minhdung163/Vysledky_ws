@@ -364,6 +364,29 @@ def main():
     #         for link in links:
     #             f.write(link + "\n")
     
+    # # Load the initial data from the JSON file
+    # with open("publications.json", "r") as initial_file:
+    #     data = json.load(initial_file)
+
+    # # Create a new JSON structure for externalids
+    # externalids = []
+
+    # for publication in data["publications"]:
+    #     outer_id = re.search(r'\d+$', publication["reference"]).group()
+    #     external_id_entry = {
+    #         "inner_id": str(uuid4()),
+    #         "outer_id": outer_id,
+    #         "typeid_id": publication["publication_type_id"]
+    #     }
+    #     externalids.append(external_id_entry)
+
+    # result = {"externalids": externalids}
+
+    # # Save externalids to a JSON file
+    # with open("externalids.json", "w") as result_file:
+    #     json.dump(result, result_file, indent=4)
+    
+    
     
     
     with open("result_links_test.txt", "r") as file:
