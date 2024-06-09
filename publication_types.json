@@ -1,44 +1,58 @@
 {
-    "publication_types": [
+    "publicationtypes": [
         {
             "id": "4b29c5ad-fcb5-48c0-93bc-af9f49ca2f80",
+            "category_id": "dc2aa2b3-d394-403f-bcfd-2e85343ed4ae",
             "name": "Uspořádání workshopu",
             "name_en": "Workshop Organization"
         },
         {
             "id": "cefb4218-5a23-44ef-98bf-1b798f200440",
+            "category_id": "dc2aa2b3-d394-403f-bcfd-2e85343ed4ae",
             "name": "Ostatní",
             "name_en": "Other"
         },
         {
             "id": "51c5bf3f-0c70-4c2e-95b9-d70730e7cc3c",
+            "category_id": "dc2aa2b3-d394-403f-bcfd-2e85343ed4ae",
             "name": "Audiovizuální tvorba",
             "name_en": "Audiovisual Creation"
         },
         {
             "id": "106885ec-e900-4b69-a30f-fe2437655bb5",
+            "category_id": "dc2aa2b3-d394-403f-bcfd-2e85343ed4ae",
             "name": "Recenzovaný odborný článek",
             "name_en": "Peer-reviewed Article"
         },
         {
             "id": "6bf87ad6-34c7-4b70-9870-4597a0ff1b6e",
+            "category_id": "dc2aa2b3-d394-403f-bcfd-2e85343ed4ae",
             "name": "Stať ve sborníku",
             "name_en": "Conference Proceedings Article"
         },
         {
             "id": "0277345a-fc53-4c32-a5ab-733b313563c2",
+            "category_id": "dc2aa2b3-d394-403f-bcfd-2e85343ed4ae",
             "name": "Kapitola/y v odborné knize",
             "name_en": "Chapter/s in a Scholarly Book"
         },
         {
             "id": "e9eba1ef-47db-4ac9-a332-b400a47a620c",
+            "category_id": "dc2aa2b3-d394-403f-bcfd-2e85343ed4ae",
             "name": "Software",
             "name_en": "Software"
         },
         {
             "id": "71505f0a-d965-4662-8e51-ee02667aaeff",
+            "category_id": "dc2aa2b3-d394-403f-bcfd-2e85343ed4ae",
             "name": "Odborná kniha",
             "name_en": "Scholarly Book"
+        },
+        {
+            "id": "db5ea8e0-fb50-476d-b19c-4bdeb668758b",
+            "category_id": "dc2aa2b3-d394-403f-bcfd-2e85343ed4ae",
+            "name": "Poloprovoz / technologie / odrůda / plemeno",
+            "name_en": "Semi-Operational / Technology / Variety / Breed"
         }
     ]
 }
