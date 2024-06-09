@@ -1,0 +1,100 @@
+{
+    "publication_authors": [
+        [
+            {
+                "id": "34bd8e98-f3ab-4395-a08b-5a6c35afd8b3",
+                "user_id": "1ecdc7a0-ac11-4e15-8148-a2fa5c634edc",
+                "publication_id": "4892a465-08a0-4dc8-a006-189d597329f5",
+                "order": "1",
+                "share": "100"
+            }
+        ],
+        [
+            {
+                "id": "c4fc5463-746a-4765-89b2-35367a769d78",
+                "user_id": "79bf8ef9-7980-48fa-af0c-a404afdb3735",
+                "publication_id": "2cb741b8-c359-400a-b0a6-9270436e942f",
+                "order": "1",
+                "share": "100"
+            }
+        ],
+        [
+            {
+                "id": "042d264a-c10d-490b-93e5-a14e86426a04",
+                "user_id": null,
+                "publication_id": "45659f8e-9900-426e-bd44-dfec397c8ed1",
+                "order": null,
+                "share": null
+            }
+        ],
+        [
+            {
+                "id": "9860581a-85a3-4691-9eab-9ec519f7b70e",
+                "user_id": "4dce223e-2a17-4808-a03f-2dd8708be3c3",
+                "publication_id": "8f9d8be0-2823-4436-80ed-bf42cbd29361",
+                "order": "1",
+                "share": "20"
+            },
+            {
+                "id": "46c701d7-924d-45c8-b91d-4163202193a9",
+                "user_id": "0d3a5270-7e08-4ef5-86a6-3d80a7a4c5f5",
+                "publication_id": "8f9d8be0-2823-4436-80ed-bf42cbd29361",
+                "order": "2",
+                "share": "16"
+            },
+            {
+                "id": "5cdd41da-6ffc-4bcb-a9c2-4cc0527c4a99",
+                "user_id": "4a638427-ffd4-4e2d-876d-2963ff8cabc3",
+                "publication_id": "8f9d8be0-2823-4436-80ed-bf42cbd29361",
+                "order": "3",
+                "share": "16"
+            },
+            {
+                "id": "01a9740e-9e6d-4fb6-816d-f23ef826c8c3",
+                "user_id": "12be697a-815d-4980-90d7-7a5eda16a76e",
+                "publication_id": "8f9d8be0-2823-4436-80ed-bf42cbd29361",
+                "order": "4",
+                "share": "16"
+            },
+            {
+                "id": "b4c80fa6-8900-4de0-bb00-5faaa38c5739",
+                "user_id": "1ecdc7a0-ac11-4e15-8148-a2fa5c634edc",
+                "publication_id": "8f9d8be0-2823-4436-80ed-bf42cbd29361",
+                "order": "5",
+                "share": "16"
+            },
+            {
+                "id": "e7bc549f-ec3e-4922-a116-c352d29a6ac4",
+                "user_id": "fc1aef2b-c280-4732-9add-9e9dff6a90ab",
+                "publication_id": "8f9d8be0-2823-4436-80ed-bf42cbd29361",
+                "order": "6",
+                "share": "16"
+            }
+        ],
+        [
+            {
+                "id": "7fd66a30-3384-496c-bd91-3b7015c8775b",
+                "user_id": "af1cb9e0-81c6-4bff-bae5-0189d6564c28",
+                "publication_id": "503a49dc-25ba-4e79-b941-26c4cffb0227",
+                "order": "1",
+                "share": "50"
+            },
+            {
+                "id": "3428711b-143b-4c89-afd9-209d6840f1c1",
+                "user_id": "aaaa3238-5c1a-4b59-9fb9-af3c8664d4e5",
+                "publication_id": "503a49dc-25ba-4e79-b941-26c4cffb0227",
+                "order": "2",
+                "share": "50"
+            }
+        ],
+        [
+            {
+                "id": "162017b8-3890-4f49-a2b0-e45c20d8ae64",
+                "user_id": "1782cfb0-a5eb-4de1-b2ab-abefeab7a7f4",
+                "publication_id": "40427013-b8f4-4ec3-91ee-63a639777585",
+                "order": "1",
+                "share": "100"
+            }
+        ]
+    ]
+}

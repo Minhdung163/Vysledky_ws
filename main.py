@@ -175,40 +175,49 @@ def get_list_of_authors(driver, result_link):
     try:
         tbody_element = driver.find_element(By.XPATH, "/html/body/div/main/div[1]/div[5]/div/div/div[2]/table/tbody")
         # Proceed with operations on tbody_element if found
+        rows = tbody_element.find_elements(By.TAG_NAME, "tr")
+        authors = []
+        
+        for row in rows:
+            cells = row.find_elements(By.TAG_NAME, "td")
+            author_name = cells[1].text
+            
+            # Search for the author in the loaded users
+            matching_user = next((user for user in users if user["name"] == author_name), None)
+            
+            # If a matching user is found, use its ID; otherwise, generate a new UUID
+            user_id = matching_user["id"] if matching_user else str(uuid4())
+            
+            # Search for a matching publication reference
+            matching_publication = next((pub for pub in publications_data["publications"] if pub["reference"] == result_link), None)
+            
+            # If a matching publication is found, use its ID for the author
+            if matching_publication:
+                publication_id = matching_publication["id"]
+            
+            author = {
+                "id": str(uuid4()),
+                "user_id": user_id,
+                "publication_id": publication_id,
+                "order": cells[0].text,
+                "share": cells[2].text
+            }
+            authors.append(author)
+        return authors
     except NoSuchElementException:
-        # Element not found, skip or handle accordingly
-        pass
-    
-    rows = tbody_element.find_elements(By.TAG_NAME, "tr")
-    authors = []
-    
-    for row in rows:
-        cells = row.find_elements(By.TAG_NAME, "td")
-        author_name = cells[1].text
-        
-        # Search for the author in the loaded users
-        matching_user = next((user for user in users if user["name"] == author_name), None)
-        
-        # If a matching user is found, use its ID; otherwise, generate a new UUID
-        user_id = matching_user["id"] if matching_user else str(uuid4())
-        
-        # Search for a matching publication reference
         matching_publication = next((pub for pub in publications_data["publications"] if pub["reference"] == result_link), None)
-        
+            
         # If a matching publication is found, use its ID for the author
         if matching_publication:
             publication_id = matching_publication["id"]
-        
-        author = {
-            "id": str(uuid4()),
-            "user_id": user_id,
-            "publication_id": publication_id,
-            "order": cells[0].text,
-            "share": cells[2].text
-        }
-        authors.append(author)
-    return authors
-
+        # Element not found, skip or handle accordingly
+        return [{
+            "id": str(uuid4()),  # Generate a new UUID for the id
+            "user_id": None,  # Explicitly set to None
+            "publication_id": publication_id, 
+            "order": None,  # Explicitly set to None
+            "share": None  # Explicitly set to None
+        }]
 
 def login(url, username, password):
     browser_options = webdriver.ChromeOptions()
