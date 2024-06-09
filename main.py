@@ -165,8 +165,8 @@ def get_list_of_authors(driver, result_link):
     with open("user.json", "r", encoding='utf-8') as file:
         users = json.load(file)
         
-    # Load the result_data_test.json file
-    with open("result_data_test.json", "r", encoding='utf-8') as file:
+    # Load the publications.json file
+    with open("publications.json", "r", encoding='utf-8') as file:
         publications_data = json.load(file)
     
     driver.get(result_link)
@@ -362,7 +362,7 @@ def main():
     
     # publication_data = write_publication(main_url, username, password, result_links)
         
-    # with open("result_data_test8.json", "w", encoding = "utf-8") as f:
+    # with open("publications.json", "w", encoding = "utf-8") as f:
     #     json.dump(publication_data, f, ensure_ascii=False, indent=4, default=lambda o: '<not serializable>)')
     
 

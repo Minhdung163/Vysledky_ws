@@ -11,6 +11,7 @@ secret
 passwords.*
 scraped
 infor.txt
+error.txt
 
 # Distribution / packaging
 .Python
