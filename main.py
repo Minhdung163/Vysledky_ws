@@ -149,15 +149,36 @@ def get_publication(driver,result_link):
     }
 
 def get_publication_types(driver, result_link):
+    with open('publication_categories.json', 'r', encoding='utf-8') as f:
+        data = json.load(f)
+    
+    category_id = data['publicationcategories'][0]['id']
+    
     driver.get(result_link)
     sleep(2)
 
     id = str(uuid4())
     name = driver.find_element(By.XPATH, "/html/body/div/main/div[1]/div[7]/div/div/div[2]/table/tbody/tr[1]/td").text
     
+    name_to_name_en_mapping = {
+        "Uspořádání workshopu": "Workshop Organization",
+        "Ostatní": "Other",
+        "Audiovizuální tvorba": "Audiovisual Creation",
+        "Recenzovaný odborný článek": "Peer-reviewed Article",
+        "Stať ve sborníku": "Conference Proceedings Article",
+        "Kapitola/y v odborné knize": "Chapter/s in a Scholarly Book",
+        "Software": "Software",
+        "Odborná kniha": "Scholarly Book",
+        "Poloprovoz / technologie / odrůda / plemeno": "Semi-Operational / Technology / Variety / Breed"
+    }
+    
+    name_en = name_to_name_en_mapping.get(name, "Unknown")
+    
     return {
         "id": id, 
-        "name": name
+        "category_id": category_id,
+        "name": name,
+        "name_en": name_en
     }
     
 def get_list_of_authors(driver, result_link):
@@ -175,40 +196,49 @@ def get_list_of_authors(driver, result_link):
     try:
         tbody_element = driver.find_element(By.XPATH, "/html/body/div/main/div[1]/div[5]/div/div/div[2]/table/tbody")
         # Proceed with operations on tbody_element if found
+        rows = tbody_element.find_elements(By.TAG_NAME, "tr")
+        authors = []
+        
+        for row in rows:
+            cells = row.find_elements(By.TAG_NAME, "td")
+            author_name = cells[1].text
+            
+            # Search for the author in the loaded users
+            matching_user = next((user for user in users if user["name"] == author_name), None)
+            
+            # If a matching user is found, use its ID; otherwise, generate a new UUID
+            user_id = matching_user["id"] if matching_user else str(uuid4())
+            
+            # Search for a matching publication reference
+            matching_publication = next((pub for pub in publications_data["publications"] if pub["reference"] == result_link), None)
+            
+            # If a matching publication is found, use its ID for the author
+            if matching_publication:
+                publication_id = matching_publication["id"]
+            
+            author = {
+                "id": str(uuid4()),
+                "user_id": user_id,
+                "publication_id": publication_id,
+                "order": cells[0].text,
+                "share": cells[2].text
+            }
+            authors.append(author)
+        return authors
     except NoSuchElementException:
-        # Element not found, skip or handle accordingly
-        pass
-    
-    rows = tbody_element.find_elements(By.TAG_NAME, "tr")
-    authors = []
-    
-    for row in rows:
-        cells = row.find_elements(By.TAG_NAME, "td")
-        author_name = cells[1].text
-        
-        # Search for the author in the loaded users
-        matching_user = next((user for user in users if user["name"] == author_name), None)
-        
-        # If a matching user is found, use its ID; otherwise, generate a new UUID
-        user_id = matching_user["id"] if matching_user else str(uuid4())
-        
-        # Search for a matching publication reference
         matching_publication = next((pub for pub in publications_data["publications"] if pub["reference"] == result_link), None)
-        
+            
         # If a matching publication is found, use its ID for the author
         if matching_publication:
             publication_id = matching_publication["id"]
-        
-        author = {
-            "id": str(uuid4()),
-            "user_id": user_id,
-            "publication_id": publication_id,
-            "order": cells[0].text,
-            "share": cells[2].text
-        }
-        authors.append(author)
-    return authors
-
+        # Element not found, skip or handle accordingly
+        return [{
+            "id": str(uuid4()),  # Generate a new UUID for the id
+            "user_id": None,  # Explicitly set to None
+            "publication_id": publication_id, 
+            "order": None,  # Explicitly set to None
+            "share": None  # Explicitly set to None
+        }]
 
 def login(url, username, password):
     browser_options = webdriver.ChromeOptions()
@@ -320,7 +350,7 @@ def write_publication_types(url, username, password, result_links):
         if publication_types['name'] not in seen_names:
             seen_names.add(publication_types['name'])
             publication_types_list.append(publication_types)
-    results = {"publication_types": publication_types_list}
+    results = {"publicationtypes": publication_types_list}
     return results
 
 def write_authors(url, result_links, username, password):
@@ -347,6 +377,41 @@ def insert_externalidstypeid():
     result = {"externalidtypes": new_type}
     with open("externalidtypes.json", "w") as type:
         json.dump(result, type, indent=4)
+def create_publication_category():
+    new_id = str(uuid4())  # Generate a new UUID
+    category = {
+        "publicationcategories": [
+            {
+                "id": new_id,  # Use the generated UUID
+                "name": "Vědecké",
+                "name_en": "Scientific"  # Corrected typo from "Scientic" to "Scientific"
+            }
+        ]
+    }
+    
+    # Write the category dictionary to a JSON file
+    with open('publication_categories.json', 'w', encoding='utf-8') as f:
+        json.dump(category, f, ensure_ascii=False, indent=4)
+    
+    return category
+
+def merge_data():
+
+    with (open("publication_authors2.json", "r", encoding="utf-8") as publication_authors,
+          open("publication_types.json", "r", encoding="utf-8") as publication_types,
+          open("publications.json", "r", encoding="utf-8") as publications,
+          open("externalids.json", "r", encoding="utf-8") as externalIds):
+
+        data_authors = json.load(publication_authors)
+        data_types = json.load(publication_types)
+        data_publication = json.load(publications)
+        ext_ids = json.load(externalIds)
+
+        merged_data = [ext_ids, data_authors, data_types, data_publication ]
+
+        # Step 3: Write the merged data to a new JSON file
+        with open("systemdata.json", "w", encoding="utf-8") as f:
+            json.dump(merged_data, f, ensure_ascii=False, indent=4)
 
 def main():
     #Logging in
@@ -414,10 +479,12 @@ def main():
     # # Scrape the publication users
     # scrape_publication_user(author_url, username, password)    
     
-    author_data = write_authors(main_url, result_links, username, password)
+    # author_data = write_authors(main_url, result_links, username, password)
     
-    with open("publication_authors2.json", "w", encoding = "utf-8") as f:
-        f.write(json.dumps(author_data, ensure_ascii=False, indent=4))
+    # with open("publication_authors2.json", "w", encoding = "utf-8") as f:
+    #     f.write(json.dumps(author_data, ensure_ascii=False, indent=4))
+    # merge_data()
+    
 
     
       

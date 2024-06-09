@@ -13,6 +13,7 @@ scraped
 infor.txt
 error.txt
 
+
 # Distribution / packaging
 .Python
 build/
