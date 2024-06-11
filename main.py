@@ -143,8 +143,8 @@ def get_publication(driver,result_link):
     return {
         "id": id, 
         "name": name, 
-        "published_year": published_year, 
-        "place_of_publication": place_of_publication, 
+        "published_date": published_year, 
+        "place": place_of_publication, 
         "publication_type_id": publication_type_id, 
         "valid": valid, 
         "reference": result_link
@@ -547,10 +547,10 @@ def main():
     # with open("publication_authors2.json", "w", encoding = "utf-8") as f:
     #     f.write(json.dumps(author_data, ensure_ascii=False, indent=4))
     
-    #merge_data()
+    merge_data()
     
-    db_writer = DBWriter()  # Instantiate your DBWriter (adjust if the constructor requires parameters)
-    asyncio.run(insert_publications_from_json(db_writer))
+    # db_writer = DBWriter()  # Instantiate your DBWriter (adjust if the constructor requires parameters)
+    # asyncio.run(insert_publications_from_json(db_writer))
     
 
     

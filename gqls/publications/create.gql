@@ -1,0 +1,28 @@
+mutation (
+  $id: UUID!
+  $name: String!
+  $published_date: String!
+  $place: String!
+  $publication_type_id: UUID!
+  $valid: Boolean
+  $reference: String!
+) {
+  result: publicationInsert(
+    publication: {
+      id: $id
+      name: $name
+      published_date: $published_date
+      place: $place
+      publication_type_id: $publication_type_id
+      valid: $valid
+      reference: $reference
+    }
+  ) {
+    id
+    msg
+    result: publication {
+      id
+      name
+    }
+  }
+}
