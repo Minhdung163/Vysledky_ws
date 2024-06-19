@@ -399,7 +399,7 @@ def create_publication_category():
 
 def creat_externalids():
     # Load the initial data from the JSON file
-    with open("publications.json", "r", encoding='utf-8') as initial_file:
+    with open("publications_unique.json", "r", encoding='utf-8') as initial_file:
         data = json.load(initial_file)
         
     with open("externalidtypes.json", "r", encoding='utf-8') as f:
@@ -422,15 +422,60 @@ def creat_externalids():
     result = {"externalids": externalids}
 
     # Save externalids to a JSON file
-    with open("externalids.json", "w") as result_file:
+    with open("externalids_unique.json", "w") as result_file:
         json.dump(result, result_file, indent=4)
+
+def change_type_publication_authors():
+    # Step 1: Load the JSON data from the file
+    with open('publication_authors.json', 'r', encoding='utf-8') as file:
+        data = json.load(file)
+
+    # Step 2: Iterate through the list of dictionaries under 'publication_authors'
+    for author in data['publication_authors']:
+        # Step 3: Convert the fields
+        if author.get('order') is not None:
+            author['order'] = int(author['order'])
+        else:
+            author['order'] = 0  # Default value if 'order' is not found or is None
+        
+        if author.get('share') is not None:
+            author['share'] = float(author['share'])
+        else:
+            author['share'] = 0.0  # Default value if 'share' is not found or is None
+
+    # Step 4: Write the modified data back to a new JSON file
+    with open('publication_authors_modified.json', 'w', encoding='utf-8') as file:
+        json.dump(data, file, indent=4)
+
+def remove_duplicate_publications(file_path):
+    # Load the JSON data from the file
+    with open(file_path, 'r', encoding='utf-8') as file:
+        data = json.load(file)
+
+    seen_ids = set()
+    unique_publications = []
+
+    for publication in data['publications']:
+        # Extract the unique identifier from the URL
+        unique_id = publication['reference'].split('/')[-1]
+        
+        if unique_id not in seen_ids:
+            unique_publications.append(publication)
+            seen_ids.add(unique_id)
+
+    # Prepare the data to be written back
+    data['publications'] = unique_publications
+
+    # Write the modified data back to a new file (or overwrite the original file)
+    with open('publications_unique.json', 'w', encoding='utf-8') as file:
+        json.dump(data, file, indent=4, ensure_ascii=False)
 
 def merge_data():
 
-    with (open("publication_authors.json", "r", encoding="utf-8") as publication_authors,
+    with (open("publication_authors_modified.json", "r", encoding="utf-8") as publication_authors,
           open("publication_types.json", "r", encoding="utf-8") as publication_types,
-          open("publications.json", "r", encoding="utf-8") as publications,
-          open("externalids.json", "r", encoding="utf-8") as externalIds,
+          open("publications_unique.json", "r", encoding="utf-8") as publications,
+          open("externalids_unique.json", "r", encoding="utf-8") as externalIds,
           open("publication_categories.json", "r", encoding="utf-8") as publication_categories):
 
         ext_ids = json.load(externalIds)
@@ -439,7 +484,7 @@ def merge_data():
         data_types = json.load(publication_types)
         data_publication = json.load(publications)
         
-        merged_data = [ext_ids, data_categories, data_types, data_authors, data_publication]
+        merged_data = ext_ids, data_categories, data_types, data_authors, data_publication
 
         # Step 3: Write the merged data to a new JSON file
         with open("systemdata.json", "w", encoding="utf-8") as f:
@@ -547,23 +592,49 @@ def main():
     # with open("publication_authors05.json", "w", encoding = "utf-8") as f:
     #     f.write(json.dumps(author_data, ensure_ascii=False, indent=4))
     
-    merge_data()
+    #merge_data()
     
     # db_writer = DBWriter()  # Instantiate your DBWriter (adjust if the constructor requires parameters)
     # asyncio.run(insert_publications_from_json(db_writer))
     
-    # with open("publication_authors.json", "r", encoding="utf-8") as file:
+    # with open("publication_authors2.json", "r", encoding="utf-8") as file:
     #     content = file.read()
 
-    # modified_content = content.replace("},,","},")
+    
+    # modified_content = content.replace("}", "},")
+    # modified_content = modified_content.replace("},,","},")
     
 
     # # Write the modified content back to the file
-    # with open("publication_authors.json", "w", encoding="utf-8") as file:
+    # with open("publication_authors2.json", "w", encoding="utf-8") as file:
     #     file.write(modified_content)
-
     
-      
+
+    #remove_duplicate_publications('publications.json')
+    
+
+    with open('systemdata.json', 'r', encoding ='utf-8') as file:
+        data = json.load(file)
+
+    # Step 2 & 3: Remove duplicates in the 'publication_authors' section
+    for section in data:
+        if "publication_authors" in section:
+            unique_authors = []
+            seen_ids = set()
+            for author in section["publication_authors"]:
+                if author["id"] not in seen_ids:
+                    unique_authors.append(author)
+                    seen_ids.add(author["id"])
+            section["publication_authors"] = unique_authors
+            break  # Assuming there's only one 'publication_authors' section
+
+    # Step 4: Write the modified data back to the file
+    with open('systemdata_unique.json', 'w', encoding ='utf-8') as file:
+        json.dump(data, file, indent=4, ensure_ascii=False)
+                
+            
+        
+
 if __name__ == '__main__':
     main()
  
