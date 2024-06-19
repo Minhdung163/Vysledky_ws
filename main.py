@@ -542,18 +542,19 @@ def main():
     # # Scrape the publication users
     # scrape_publication_user(author_url, username, password)    
     
-    # author_data = write_authors(main_url, result_links, username, password)
+    author_data = write_authors(main_url, result_links, username, password)
     
-    # with open("publication_authors2.json", "w", encoding = "utf-8") as f:
-    #     f.write(json.dumps(author_data, ensure_ascii=False, indent=4))
+    with open("publication_authors05.json", "w", encoding = "utf-8") as f:
+        f.write(json.dumps(author_data, ensure_ascii=False, indent=4))
     
     #merge_data()
     
-    db_writer = DBWriter()  # Instantiate your DBWriter (adjust if the constructor requires parameters)
-    asyncio.run(insert_publications_from_json(db_writer))
+    # db_writer = DBWriter()  # Instantiate your DBWriter (adjust if the constructor requires parameters)
+    # asyncio.run(insert_publications_from_json(db_writer))
     
 
     
       
 if __name__ == '__main__':
     main()
+ 
