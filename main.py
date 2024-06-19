@@ -524,7 +524,7 @@ def main():
     
     # insert_externalidstypeid()
     
-    with open("result_links_test.txt", "r") as file:
+    with open("result_links.txt", "r") as file:
         result_links = file.read().splitlines()
     
     # publication_data = write_publication(main_url, username, password, result_links)
@@ -542,16 +542,25 @@ def main():
     # # Scrape the publication users
     # scrape_publication_user(author_url, username, password)    
     
-    author_data = write_authors(main_url, result_links, username, password)
+    # author_data = write_authors(main_url, result_links, username, password)
     
-    with open("publication_authors05.json", "w", encoding = "utf-8") as f:
-        f.write(json.dumps(author_data, ensure_ascii=False, indent=4))
+    # with open("publication_authors05.json", "w", encoding = "utf-8") as f:
+    #     f.write(json.dumps(author_data, ensure_ascii=False, indent=4))
     
     merge_data()
     
     # db_writer = DBWriter()  # Instantiate your DBWriter (adjust if the constructor requires parameters)
     # asyncio.run(insert_publications_from_json(db_writer))
     
+    # with open("publication_authors.json", "r", encoding="utf-8") as file:
+    #     content = file.read()
+
+    # modified_content = content.replace("},,","},")
+    
+
+    # # Write the modified content back to the file
+    # with open("publication_authors.json", "w", encoding="utf-8") as file:
+    #     file.write(modified_content)
 
     
       
